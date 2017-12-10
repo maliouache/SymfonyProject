@@ -1,0 +1,3 @@
+ips_symfony_project_homepage:
+    path:     /
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:index }
