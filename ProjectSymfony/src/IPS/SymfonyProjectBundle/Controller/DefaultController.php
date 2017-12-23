@@ -26,10 +26,15 @@ class DefaultController extends Controller
         $em=$this->getDoctrine()->getManager();
         $em->persist($project);
         $em->flush();
-        return $this->render('IPSSymfonyProjectBundle::projects.html.twig');
+        return $this->showprojectsAction();
     }
 
     public function showprojectsAction(){
-        return $this->render('IPSSymfonyProjectBundle::projects.html.twig');
+        $rep_proj=$this->getDoctrine()->getManager()->getRepository('IPSSymfonyProjectBundle:Project');
+        $projects=$rep_proj->findAll();
+        return $this->get('templating')->renderResponse(
+            'IPSSymfonyProjectBundle::projects.html.twig',
+            array('projects'  => $projects)
+        );  
     }
 }

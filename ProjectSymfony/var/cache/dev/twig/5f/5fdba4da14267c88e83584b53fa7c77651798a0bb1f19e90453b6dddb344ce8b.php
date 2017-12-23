@@ -15,11 +15,11 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_74e703588bb7b496985ffad7c8675ac0afb225847ebef7d04682329ab5b087c3 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_74e703588bb7b496985ffad7c8675ac0afb225847ebef7d04682329ab5b087c3->enter($__internal_74e703588bb7b496985ffad7c8675ac0afb225847ebef7d04682329ab5b087c3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
+        $__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e->enter($__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
 
-        $__internal_bb9a7e02d4a2eb963c8417a4691d8fd044da715c3d40b5713ab125cd98eaaf17 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_bb9a7e02d4a2eb963c8417a4691d8fd044da715c3d40b5713ab125cd98eaaf17->enter($__internal_bb9a7e02d4a2eb963c8417a4691d8fd044da715c3d40b5713ab125cd98eaaf17_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
+        $__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef->enter($__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -138,23 +138,30 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
                 <!-- here ends the main content -->
 
                 <div class=\"panel-group\">
-
-                    <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">Panel with panel-primary class</div>
-                        <div class=\"panel-body\">Panel Content</div>
+                    ";
+        // line 117
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["projects"] ?? $this->getContext($context, "projects")));
+        foreach ($context['_seq'] as $context["_key"] => $context["project"]) {
+            // line 118
+            echo "                    <div class=\"panel panel-primary\">
+                        <div class=\"panel-heading\">";
+            // line 119
+            echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "NAME", array()), "html", null, true);
+            echo "</div>
+                        <div class=\"panel-body\">";
+            // line 120
+            echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "COMMENT", array()), "html", null, true);
+            echo "</div>
                     </div>
                     </br>
-                    <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">Panel with panel-primary class</div>
-                        <div class=\"panel-body\">Panel Content</div>
-                    </div>
-                    </br>
-                    <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">Panel with panel-primary class</div>
-                        <div class=\"panel-body\">Panel Content</div>
-                    </div>
-                    </br>
-                </div>
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['project'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 124
+        echo "                </div>
             </div>
             <div class=\"col-sm-2 sidenav\">
                 <div class=\"well\">
@@ -175,10 +182,10 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
 </html>";
         
-        $__internal_74e703588bb7b496985ffad7c8675ac0afb225847ebef7d04682329ab5b087c3->leave($__internal_74e703588bb7b496985ffad7c8675ac0afb225847ebef7d04682329ab5b087c3_prof);
+        $__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e->leave($__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e_prof);
 
         
-        $__internal_bb9a7e02d4a2eb963c8417a4691d8fd044da715c3d40b5713ab125cd98eaaf17->leave($__internal_bb9a7e02d4a2eb963c8417a4691d8fd044da715c3d40b5713ab125cd98eaaf17_prof);
+        $__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef->leave($__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef_prof);
 
     }
 
@@ -187,9 +194,14 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
         return "IPSSymfonyProjectBundle::projects.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  25 => 1,);
+        return array (  164 => 124,  154 => 120,  150 => 119,  147 => 118,  143 => 117,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -318,22 +330,13 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
                 <!-- here ends the main content -->
 
                 <div class=\"panel-group\">
-
+                    {% for project in projects %}
                     <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">Panel with panel-primary class</div>
-                        <div class=\"panel-body\">Panel Content</div>
+                        <div class=\"panel-heading\">{{project.NAME}}</div>
+                        <div class=\"panel-body\">{{project.COMMENT}}</div>
                     </div>
                     </br>
-                    <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">Panel with panel-primary class</div>
-                        <div class=\"panel-body\">Panel Content</div>
-                    </div>
-                    </br>
-                    <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">Panel with panel-primary class</div>
-                        <div class=\"panel-body\">Panel Content</div>
-                    </div>
-                    </br>
+                    {% endfor %}
                 </div>
             </div>
             <div class=\"col-sm-2 sidenav\">

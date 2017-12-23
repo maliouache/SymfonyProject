@@ -114,22 +114,13 @@
                 <!-- here ends the main content -->
 
                 <div class="panel-group">
-
+                    {% for project in projects %}
                     <div class="panel panel-primary">
-                        <div class="panel-heading">Panel with panel-primary class</div>
-                        <div class="panel-body">Panel Content</div>
+                        <div class="panel-heading">{{project.NAME}}</div>
+                        <div class="panel-body">{{project.COMMENT}}</div>
                     </div>
                     </br>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Panel with panel-primary class</div>
-                        <div class="panel-body">Panel Content</div>
-                    </div>
-                    </br>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Panel with panel-primary class</div>
-                        <div class="panel-body">Panel Content</div>
-                    </div>
-                    </br>
+                    {% endfor %}
                 </div>
             </div>
             <div class="col-sm-2 sidenav">
