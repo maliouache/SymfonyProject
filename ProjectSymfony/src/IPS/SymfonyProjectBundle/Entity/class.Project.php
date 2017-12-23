@@ -1,5 +1,5 @@
 <?php
-namespace IPS\SymfonyProjectBundle\Controller\Entity;
+namespace IPS\SymfonyProjectBundle\Entity;
 
 class Project {
     var $id=-1;
@@ -9,12 +9,11 @@ class Project {
     var $domain="";
     var $comment="";
 
-    function __construct($idProject = -1)
+    function __construct($BD,$idProject = -1)
 	{	// construct a project
-		global $BD;
 		$this->id = $idProject;
 		if ($this->id != -1 && is_numeric($this->id)){
-			$this->load();
+			$this->load($BD);
 		}
 	}
     
@@ -22,9 +21,8 @@ class Project {
 		return ($this->id != -1);
     }
     
-    function load()
+    function load($BD)
 	{
-		global $BD, $bdStages, $bdStageParcours;
 
 		// retrieve the project
 		$sql = "SELECT * FROM PROJECT WHERE ID = " . $this->id;
@@ -50,23 +48,20 @@ class Project {
         $this->comment=$comment;
     }
 
-    function save(){
-        global $BD, $bdStages;
+    function save($BD){
 		$sql="";
 		if($this->id==-1)
 		{
-			$sql.="INSERT INTO PROJECT(NAME,IMPORTANCE,DEADLINE,DOMAIN,COMMENT) VALUES
-            (".$this->id.",
-            ".$this->name.",
-            ".$this->importance.",
-            ".$this->deadline.",
-            ".$this->domain.",
-            ".$this->comment.")";
+			$sql.='INSERT INTO PROJECT(NAME,IMPORTANCE,DEADLINE,DOMAIN,COMMENT) VALUES
+            ("'.$this->name.'",
+            "'.$this->importance.'",
+            "'.$this->deadline.'",
+            "'.$this->domain.'",
+            "'.$this->comment.'");';
 		}
 		else
 		{
 			$sql.="UPDATE PROJECT SET "
-				. "ID=".$this->id.", "
 				. "NAME=".$this->name.", "
 				. "IMPORTANCE=".$this->importance.", "
 				. "DEADLINE=".$this->deadline.", "

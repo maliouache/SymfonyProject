@@ -23,9 +23,9 @@ class DefaultController extends Controller
     public function saveprojectAction(){
         include_once "Entity/start.php";
         include_once "Entity/class.Project.php";
-        $project=new Project();
+        $project=new Project($BD);
         $project->init($_POST["name"],$_POST["importance"],$_POST["deadline"],$_POST["domain"],$_POST["comment"]);
-        //$project->save();
+        $project->save($BD);
         return $this->render('IPSSymfonyProjectBundle:Default:index.html.twig');
     }
 }
