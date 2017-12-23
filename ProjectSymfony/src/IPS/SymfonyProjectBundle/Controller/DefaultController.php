@@ -3,7 +3,7 @@
 namespace IPS\SymfonyProjectBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use IPS\SymfonyProjectBundle\Controller\Entity\Project;
+use IPS\SymfonyProjectBundle\Entity\Project;
 
 class DefaultController extends Controller
 {
@@ -21,11 +21,15 @@ class DefaultController extends Controller
     }
 
     public function saveprojectAction(){
-        include_once "Entity/start.php";
-        include_once "Entity/class.Project.php";
-        $project=new Project($BD);
+        $project=new Project();
         $project->init($_POST["name"],$_POST["importance"],$_POST["deadline"],$_POST["domain"],$_POST["comment"]);
-        $project->save($BD);
-        return $this->render('IPSSymfonyProjectBundle:Default:index.html.twig');
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($project);
+        $em->flush();
+        return $this->render('IPSSymfonyProjectBundle::projects.html.twig');
+    }
+
+    public function showprojectsAction(){
+        return $this->render('IPSSymfonyProjectBundle::projects.html.twig');
     }
 }

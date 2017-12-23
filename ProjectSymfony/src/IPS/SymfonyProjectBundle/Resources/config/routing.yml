@@ -13,3 +13,7 @@ create_new_project:
 submit_new_project:
     path: /save/project
     defaults: { _controller: IPSSymfonyProjectBundle:Default:saveproject }
+
+show_projects:
+    path: /projects
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:showprojects }

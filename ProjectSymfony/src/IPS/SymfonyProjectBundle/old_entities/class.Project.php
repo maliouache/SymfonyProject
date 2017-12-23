@@ -1,5 +1,4 @@
 <?php
-namespace IPS\SymfonyProjectBundle\Entity;
 
 class Project {
     var $id=-1;
