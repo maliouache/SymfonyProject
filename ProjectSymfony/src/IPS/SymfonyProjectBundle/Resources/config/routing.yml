@@ -1,3 +1,15 @@
 ips_symfony_project_homepage:
     path:     /
     defaults: { _controller: IPSSymfonyProjectBundle:Default:index }
+
+go_to_home:
+    path:     /home
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:home }
+
+create_new_project:
+    path: /create/project
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:newproject }
+
+submit_new_project:
+    path: /save/project
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:saveproject }

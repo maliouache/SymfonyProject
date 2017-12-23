@@ -15,11 +15,11 @@ class __TwigTemplate_4726d67140af1f056a320ee5e572fae8f6462b119027c8857f4e76ab322
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b9470b530f8885944f2dbe6fbcf8e85b7745fbff78bdc0f219dbd30be9613926 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b9470b530f8885944f2dbe6fbcf8e85b7745fbff78bdc0f219dbd30be9613926->enter($__internal_b9470b530f8885944f2dbe6fbcf8e85b7745fbff78bdc0f219dbd30be9613926_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle:Default:index.html.twig"));
+        $__internal_a7471972abe3b33a9d4f9bfc6a628dd7e6300c59c38b971eba7c64e9eba43e74 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a7471972abe3b33a9d4f9bfc6a628dd7e6300c59c38b971eba7c64e9eba43e74->enter($__internal_a7471972abe3b33a9d4f9bfc6a628dd7e6300c59c38b971eba7c64e9eba43e74_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle:Default:index.html.twig"));
 
-        $__internal_08593a840d98239092be1a48c41b4610e7b0c7624b9def790d579c35824311e9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_08593a840d98239092be1a48c41b4610e7b0c7624b9def790d579c35824311e9->enter($__internal_08593a840d98239092be1a48c41b4610e7b0c7624b9def790d579c35824311e9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle:Default:index.html.twig"));
+        $__internal_c8de1e83c2f805b20314b36451bb4433187a6f07b4a2b94af54ea149fd224f3e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c8de1e83c2f805b20314b36451bb4433187a6f07b4a2b94af54ea149fd224f3e->enter($__internal_c8de1e83c2f805b20314b36451bb4433187a6f07b4a2b94af54ea149fd224f3e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle:Default:index.html.twig"));
 
         // line 1
         echo "<html>
@@ -38,7 +38,7 @@ body {
 </style>
 </head>
 <body>
-\t<a href=\"home\"><img alt=\"Appuyez pour aller au home\" src=\"http://blog.garylong.fr/wp-content/uploads/2013/03/symfony-2-logo.png\" width=\"150px\" height=\"150px\"></a>
+\t<a href=\"/home\"><img alt=\"Appuyez pour aller au home\" src=\"http://blog.garylong.fr/wp-content/uploads/2013/03/symfony-2-logo.png\" width=\"150px\" height=\"150px\"></a>
 \t<div class=\"container\">
 \t\t<h2>Athentifiez vous !</h2>
 \t\t<form class=\"form-horizontal\" action=\"\">
@@ -76,10 +76,10 @@ body {
 </body>
 </html>";
         
-        $__internal_b9470b530f8885944f2dbe6fbcf8e85b7745fbff78bdc0f219dbd30be9613926->leave($__internal_b9470b530f8885944f2dbe6fbcf8e85b7745fbff78bdc0f219dbd30be9613926_prof);
+        $__internal_a7471972abe3b33a9d4f9bfc6a628dd7e6300c59c38b971eba7c64e9eba43e74->leave($__internal_a7471972abe3b33a9d4f9bfc6a628dd7e6300c59c38b971eba7c64e9eba43e74_prof);
 
         
-        $__internal_08593a840d98239092be1a48c41b4610e7b0c7624b9def790d579c35824311e9->leave($__internal_08593a840d98239092be1a48c41b4610e7b0c7624b9def790d579c35824311e9_prof);
+        $__internal_c8de1e83c2f805b20314b36451bb4433187a6f07b4a2b94af54ea149fd224f3e->leave($__internal_c8de1e83c2f805b20314b36451bb4433187a6f07b4a2b94af54ea149fd224f3e_prof);
 
     }
 
@@ -119,7 +119,7 @@ body {
 </style>
 </head>
 <body>
-\t<a href=\"home\"><img alt=\"Appuyez pour aller au home\" src=\"http://blog.garylong.fr/wp-content/uploads/2013/03/symfony-2-logo.png\" width=\"150px\" height=\"150px\"></a>
+\t<a href=\"/home\"><img alt=\"Appuyez pour aller au home\" src=\"http://blog.garylong.fr/wp-content/uploads/2013/03/symfony-2-logo.png\" width=\"150px\" height=\"150px\"></a>
 \t<div class=\"container\">
 \t\t<h2>Athentifiez vous !</h2>
 \t\t<form class=\"form-horizontal\" action=\"\">
@@ -155,6 +155,6 @@ body {
 \t</div>
 
 </body>
-</html>", "IPSSymfonyProjectBundle:Default:index.html.twig", "/home/maliouache/1/ProjectSymphony/ProjectSymfony/src/IPS/SymfonyProjectBundle/Resources/views/Default/index.html.twig");
+</html>", "IPSSymfonyProjectBundle:Default:index.html.twig", "/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/src/IPS/SymfonyProjectBundle/Resources/views/Default/index.html.twig");
     }
 }

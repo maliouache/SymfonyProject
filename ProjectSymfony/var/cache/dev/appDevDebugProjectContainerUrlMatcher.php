@@ -122,6 +122,21 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::indexAction',  '_route' => 'ips_symfony_project_homepage',);
         }
 
+        // go_to_home
+        if ('/home' === $pathinfo) {
+            return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::homeAction',  '_route' => 'go_to_home',);
+        }
+
+        // create_new_project
+        if ('/create/project' === $pathinfo) {
+            return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::newprojectAction',  '_route' => 'create_new_project',);
+        }
+
+        // submit_new_project
+        if ('/save/project' === $pathinfo) {
+            return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::saveprojectAction',  '_route' => 'submit_new_project',);
+        }
+
         // homepage
         if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
