@@ -15,11 +15,11 @@ class __TwigTemplate_d48b0b8a56afa672c7539fc5bb1c43af7e159c152812fd982481138a2c1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_a6430e29631c388995185041cc9354b7f850999a137d7cb75db1d32e70497349 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a6430e29631c388995185041cc9354b7f850999a137d7cb75db1d32e70497349->enter($__internal_a6430e29631c388995185041cc9354b7f850999a137d7cb75db1d32e70497349_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::home.html.twig"));
+        $__internal_b75eb7ab9f54bb113a6ae88832009da262b1d07e793bad6220cbfffc6aca0ece = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_b75eb7ab9f54bb113a6ae88832009da262b1d07e793bad6220cbfffc6aca0ece->enter($__internal_b75eb7ab9f54bb113a6ae88832009da262b1d07e793bad6220cbfffc6aca0ece_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::home.html.twig"));
 
-        $__internal_1bd10d3e5622d3e7e662dbfc9888c3d3aeb1b0d261bcf468cb9629b5355ef8da = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1bd10d3e5622d3e7e662dbfc9888c3d3aeb1b0d261bcf468cb9629b5355ef8da->enter($__internal_1bd10d3e5622d3e7e662dbfc9888c3d3aeb1b0d261bcf468cb9629b5355ef8da_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::home.html.twig"));
+        $__internal_e146ce406aecbe1c8d2da8776e29f5bf503680682ce04a31dd0aec601b35843c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e146ce406aecbe1c8d2da8776e29f5bf503680682ce04a31dd0aec601b35843c->enter($__internal_e146ce406aecbe1c8d2da8776e29f5bf503680682ce04a31dd0aec601b35843c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::home.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -80,7 +80,7 @@ class __TwigTemplate_d48b0b8a56afa672c7539fc5bb1c43af7e159c152812fd982481138a2c1
         <span class=\"icon-bar\"></span>
         <span class=\"icon-bar\"></span>                        
       </button>
-      <a class=\"navbar-brand\" href=\"#\">Logo</a>
+      <a class=\"navbar-brand\" href=\"/\">Logo</a>
     </div>
     <div class=\"collapse navbar-collapse\" id=\"myNavbar\">
       <ul class=\"nav navbar-nav\">
@@ -100,7 +100,7 @@ class __TwigTemplate_d48b0b8a56afa672c7539fc5bb1c43af7e159c152812fd982481138a2c1
   <div class=\"row content\">
     <div class=\"col-sm-2 sidenav\">
       <p><a href=\"/create/project\">Create new project</a></p>
-      <p><a href=\"#\">Edit Existing projects</a></p>
+      <p><a href=\"/edit/projects\">Edit Existing projects</a></p>
       <p><a href=\"#\">Link</a></p>
     </div>
     <div class=\"col-sm-8 text-left\"> 
@@ -126,10 +126,10 @@ class __TwigTemplate_d48b0b8a56afa672c7539fc5bb1c43af7e159c152812fd982481138a2c1
 </html>
 ";
         
-        $__internal_a6430e29631c388995185041cc9354b7f850999a137d7cb75db1d32e70497349->leave($__internal_a6430e29631c388995185041cc9354b7f850999a137d7cb75db1d32e70497349_prof);
+        $__internal_b75eb7ab9f54bb113a6ae88832009da262b1d07e793bad6220cbfffc6aca0ece->leave($__internal_b75eb7ab9f54bb113a6ae88832009da262b1d07e793bad6220cbfffc6aca0ece_prof);
 
         
-        $__internal_1bd10d3e5622d3e7e662dbfc9888c3d3aeb1b0d261bcf468cb9629b5355ef8da->leave($__internal_1bd10d3e5622d3e7e662dbfc9888c3d3aeb1b0d261bcf468cb9629b5355ef8da_prof);
+        $__internal_e146ce406aecbe1c8d2da8776e29f5bf503680682ce04a31dd0aec601b35843c->leave($__internal_e146ce406aecbe1c8d2da8776e29f5bf503680682ce04a31dd0aec601b35843c_prof);
 
     }
 
@@ -211,7 +211,7 @@ class __TwigTemplate_d48b0b8a56afa672c7539fc5bb1c43af7e159c152812fd982481138a2c1
         <span class=\"icon-bar\"></span>
         <span class=\"icon-bar\"></span>                        
       </button>
-      <a class=\"navbar-brand\" href=\"#\">Logo</a>
+      <a class=\"navbar-brand\" href=\"/\">Logo</a>
     </div>
     <div class=\"collapse navbar-collapse\" id=\"myNavbar\">
       <ul class=\"nav navbar-nav\">
@@ -231,7 +231,7 @@ class __TwigTemplate_d48b0b8a56afa672c7539fc5bb1c43af7e159c152812fd982481138a2c1
   <div class=\"row content\">
     <div class=\"col-sm-2 sidenav\">
       <p><a href=\"/create/project\">Create new project</a></p>
-      <p><a href=\"#\">Edit Existing projects</a></p>
+      <p><a href=\"/edit/projects\">Edit Existing projects</a></p>
       <p><a href=\"#\">Link</a></p>
     </div>
     <div class=\"col-sm-8 text-left\"> 

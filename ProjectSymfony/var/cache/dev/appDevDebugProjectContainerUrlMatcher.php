@@ -137,9 +137,42 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::saveprojectAction',  '_route' => 'submit_new_project',);
         }
 
+        // submit_new_section
+        if ('/save/section' === $pathinfo) {
+            return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::savesectionAction',  '_route' => 'submit_new_section',);
+        }
+
         // show_projects
         if ('/projects' === $pathinfo) {
             return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::showprojectsAction',  '_route' => 'show_projects',);
+        }
+
+        if (0 === strpos($pathinfo, '/edit/project')) {
+            // edit_projects
+            if ('/edit/projects' === $pathinfo) {
+                return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::editprojectsAction',  '_route' => 'edit_projects',);
+            }
+
+            // edit_project
+            if (preg_match('#^/edit/project/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_project')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::editprojectAction',));
+            }
+
+        }
+
+        // update_project
+        if (0 === strpos($pathinfo, '/update/project') && preg_match('#^/update/project/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'update_project')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::updateprojectAction',));
+        }
+
+        // delete_project
+        if (0 === strpos($pathinfo, '/delete/project') && preg_match('#^/delete/project/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'delete_project')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::deleteprojectAction',));
+        }
+
+        // create_new_section
+        if (0 === strpos($pathinfo, '/add/section') && preg_match('#^/add/section/(?P<proj>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'create_new_section')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::addsectionAction',));
         }
 
         // homepage

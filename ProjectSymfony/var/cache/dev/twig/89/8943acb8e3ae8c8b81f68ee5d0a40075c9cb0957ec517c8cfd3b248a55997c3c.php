@@ -15,11 +15,11 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d739a8e33231c6938712885aef5a2119845ef2d57f47e13a612c2879d78c2c08 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d739a8e33231c6938712885aef5a2119845ef2d57f47e13a612c2879d78c2c08->enter($__internal_d739a8e33231c6938712885aef5a2119845ef2d57f47e13a612c2879d78c2c08_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_project.html.twig"));
+        $__internal_c06a22a587b896ef2a724afc3f0d03ffc3ebb552b10e57dc42b5400f210366e6 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_c06a22a587b896ef2a724afc3f0d03ffc3ebb552b10e57dc42b5400f210366e6->enter($__internal_c06a22a587b896ef2a724afc3f0d03ffc3ebb552b10e57dc42b5400f210366e6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_project.html.twig"));
 
-        $__internal_77e78638aa342a11937158f2b0a40c9f6a1f8b4a1452aaafeb38e5fb437c16c4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_77e78638aa342a11937158f2b0a40c9f6a1f8b4a1452aaafeb38e5fb437c16c4->enter($__internal_77e78638aa342a11937158f2b0a40c9f6a1f8b4a1452aaafeb38e5fb437c16c4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_project.html.twig"));
+        $__internal_8e4851babf747438ef175fa1b9f7b9ff704ca99358c7d7b535bcde0cb16c62ce = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_8e4851babf747438ef175fa1b9f7b9ff704ca99358c7d7b535bcde0cb16c62ce->enter($__internal_8e4851babf747438ef175fa1b9f7b9ff704ca99358c7d7b535bcde0cb16c62ce_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_project.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -80,7 +80,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
         <span class=\"icon-bar\"></span>
         <span class=\"icon-bar\"></span>                        
       </button>
-      <a class=\"navbar-brand\" href=\"#\">Logo</a>
+      <a class=\"navbar-brand\" href=\"/\">Logo</a>
     </div>
     <div class=\"collapse navbar-collapse\" id=\"myNavbar\">
       <ul class=\"nav navbar-nav\">
@@ -100,7 +100,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
   <div class=\"row content\">
     <div class=\"col-sm-2 sidenav\">
       <p><a href=\"/create/project\">Create new project</a></p>
-      <p><a href=\"#\">Edit Existing projects</a></p>
+      <p><a href=\"/edit/projects\">Edit Existing projects</a></p>
       <p><a href=\"#\">Link</a></p>
     </div>
     <!-- here starts the main content -->
@@ -111,7 +111,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
                 <label class=\"control-label col-sm-2\" for=\"name\">Name of the Project: </label>
                 <div class=\"col-sm-10\">
                     <input class=\"form-control\" type=\"text\" 
-                        name=\"name\" id=\"name\"/>
+                        name=\"name\" id=\"name\" required/>
                 </div>
             </div>
             <div class=\"form-group\">
@@ -120,7 +120,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
                     <select name=\"importance\" id=\"importance\" class=\"form-control\">
                         <option value=\"very-high\">Very High</option>
                         <option value=\"high\">High</option>
-                        <option value=\"medium\">Medium</option>
+                        <option value=\"medium\" selected>Medium</option>
                         <option value=\"low\">Low</option>
                         <option value=\"very-low\">Very Low</option>
                         
@@ -138,10 +138,11 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
                 <label class=\"control-label col-sm-2\" for=\"domain\">Choose a domain: </label>
                 <div class=\"col-sm-10\">
                     <select name=\"domain\" id=\"domain\" class=\"form-control\">
+                        <option value=\"\" selected></option>
                         <option value=\"fluid-mechanics\">Fluid Mechanics</option>
                         <option value=\"geology\">Geology</option>
                         <option value=\"environment\">Environment</option>
-                        <option value=\"mathimatics\">Mathimatis</option>
+                        <option value=\"mathematics\">Mathematics</option>
                         <option value=\"physics\">Physics</option>
                         <option value=\"chemistry\">Chemistry</option>
                     </select>
@@ -150,7 +151,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
             <div class=\"form-group\">
                 <label class=\"control-label col-sm-2\" for=\"comment\">Comment:</label>
                 <div class=\"col-sm-10\">
-                    <textarea name=\"comment\" class=\"form-control\" rows=\"7\" id=\"comment\"></textarea>
+                    <textarea name=\"comment\" class=\"form-control\" rows=\"7\" id=\"comment\" required></textarea>
                 </div>
             </div>
             <div class=\"form-group\">
@@ -181,10 +182,10 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
 </html>
 ";
         
-        $__internal_d739a8e33231c6938712885aef5a2119845ef2d57f47e13a612c2879d78c2c08->leave($__internal_d739a8e33231c6938712885aef5a2119845ef2d57f47e13a612c2879d78c2c08_prof);
+        $__internal_c06a22a587b896ef2a724afc3f0d03ffc3ebb552b10e57dc42b5400f210366e6->leave($__internal_c06a22a587b896ef2a724afc3f0d03ffc3ebb552b10e57dc42b5400f210366e6_prof);
 
         
-        $__internal_77e78638aa342a11937158f2b0a40c9f6a1f8b4a1452aaafeb38e5fb437c16c4->leave($__internal_77e78638aa342a11937158f2b0a40c9f6a1f8b4a1452aaafeb38e5fb437c16c4_prof);
+        $__internal_8e4851babf747438ef175fa1b9f7b9ff704ca99358c7d7b535bcde0cb16c62ce->leave($__internal_8e4851babf747438ef175fa1b9f7b9ff704ca99358c7d7b535bcde0cb16c62ce_prof);
 
     }
 
@@ -266,7 +267,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
         <span class=\"icon-bar\"></span>
         <span class=\"icon-bar\"></span>                        
       </button>
-      <a class=\"navbar-brand\" href=\"#\">Logo</a>
+      <a class=\"navbar-brand\" href=\"/\">Logo</a>
     </div>
     <div class=\"collapse navbar-collapse\" id=\"myNavbar\">
       <ul class=\"nav navbar-nav\">
@@ -286,7 +287,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
   <div class=\"row content\">
     <div class=\"col-sm-2 sidenav\">
       <p><a href=\"/create/project\">Create new project</a></p>
-      <p><a href=\"#\">Edit Existing projects</a></p>
+      <p><a href=\"/edit/projects\">Edit Existing projects</a></p>
       <p><a href=\"#\">Link</a></p>
     </div>
     <!-- here starts the main content -->
@@ -297,7 +298,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
                 <label class=\"control-label col-sm-2\" for=\"name\">Name of the Project: </label>
                 <div class=\"col-sm-10\">
                     <input class=\"form-control\" type=\"text\" 
-                        name=\"name\" id=\"name\"/>
+                        name=\"name\" id=\"name\" required/>
                 </div>
             </div>
             <div class=\"form-group\">
@@ -306,7 +307,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
                     <select name=\"importance\" id=\"importance\" class=\"form-control\">
                         <option value=\"very-high\">Very High</option>
                         <option value=\"high\">High</option>
-                        <option value=\"medium\">Medium</option>
+                        <option value=\"medium\" selected>Medium</option>
                         <option value=\"low\">Low</option>
                         <option value=\"very-low\">Very Low</option>
                         
@@ -324,10 +325,11 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
                 <label class=\"control-label col-sm-2\" for=\"domain\">Choose a domain: </label>
                 <div class=\"col-sm-10\">
                     <select name=\"domain\" id=\"domain\" class=\"form-control\">
+                        <option value=\"\" selected></option>
                         <option value=\"fluid-mechanics\">Fluid Mechanics</option>
                         <option value=\"geology\">Geology</option>
                         <option value=\"environment\">Environment</option>
-                        <option value=\"mathimatics\">Mathimatis</option>
+                        <option value=\"mathematics\">Mathematics</option>
                         <option value=\"physics\">Physics</option>
                         <option value=\"chemistry\">Chemistry</option>
                     </select>
@@ -336,7 +338,7 @@ class __TwigTemplate_61c225c3adc9cc7b06665c22f4c747983648ba711e616f2a480b185949c
             <div class=\"form-group\">
                 <label class=\"control-label col-sm-2\" for=\"comment\">Comment:</label>
                 <div class=\"col-sm-10\">
-                    <textarea name=\"comment\" class=\"form-control\" rows=\"7\" id=\"comment\"></textarea>
+                    <textarea name=\"comment\" class=\"form-control\" rows=\"7\" id=\"comment\" required></textarea>
                 </div>
             </div>
             <div class=\"form-group\">

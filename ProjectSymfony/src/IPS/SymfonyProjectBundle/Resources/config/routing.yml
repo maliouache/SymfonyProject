@@ -17,3 +17,27 @@ submit_new_project:
 show_projects:
     path: /projects
     defaults: { _controller: IPSSymfonyProjectBundle:Default:showprojects }
+
+edit_projects:
+    path: /edit/projects
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:editprojects }
+
+edit_project:
+    path: /edit/project/{id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:editproject }
+
+update_project:
+    path: /update/project/{id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:updateproject }
+
+delete_project:
+    path: /delete/project/{id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:deleteproject }
+
+create_new_section:
+    path: /add/section/{proj}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:addsection }
+
+submit_new_section:
+    path: /save/section
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:savesection }

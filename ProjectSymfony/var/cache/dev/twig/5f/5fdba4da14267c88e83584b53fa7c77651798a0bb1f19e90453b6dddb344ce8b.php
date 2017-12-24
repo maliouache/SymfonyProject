@@ -15,11 +15,11 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e->enter($__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
+        $__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274->enter($__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
 
-        $__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef->enter($__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
+        $__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81->enter($__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -43,7 +43,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
         /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 
         .row.content {
-            height: 550px
+            height: 650px;
         }
 
         /* Set gray background color and 100% height */
@@ -57,7 +57,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
         /* Set black background color, white text and some padding */
 
         footer {
-            position: fixed;
+            /* position: fixed; */
             background-color: #555;
             color: white;
             padding: 15px;
@@ -91,7 +91,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
                     <span class=\"icon-bar\"></span>
                     <span class=\"icon-bar\"></span>
                 </button>
-                <a class=\"navbar-brand\" href=\"#\">Logo</a>
+                <a class=\"navbar-brand\" href=\"/\">Logo</a>
             </div>
             <div class=\"collapse navbar-collapse\" id=\"myNavbar\">
                 <ul class=\"nav navbar-nav\">
@@ -125,7 +125,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
                     <a href=\"/create/project\">Create new project</a>
                 </p>
                 <p>
-                    <a href=\"#\">Edit Existing projects</a>
+                    <a href=\"/edit/projects\">Edit Existing projects</a>
                 </p>
                 <p>
                     <a href=\"#\">Link</a>
@@ -149,10 +149,29 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
             // line 119
             echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "NAME", array()), "html", null, true);
             echo "</div>
-                        <div class=\"panel-body\">";
-            // line 120
+                        <div class=\"panel-body\">
+                                <table class=\"table\">
+                                  <tbody>
+                                    <tr>
+                                      <td width=\"70%\">";
+            // line 124
             echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "COMMENT", array()), "html", null, true);
-            echo "</div>
+            echo "</td>
+                                      <td width=\"30%\">
+                                          <a href=\"/add/section/";
+            // line 126
+            echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "ID", array()), "html", null, true);
+            echo "\">Add a new section</a></br>
+                                          <a href=\"#\">See the details of the project</a></br>
+                                          <a href=\"#\">Here a new option to do in the project</a></br>
+                                          <a href=\"#\">Here a new option to do in the project</a></br>
+                                          <a href=\"#\">Here a new option to do in the project</a></br>
+                                          <a href=\"#\">Here a new option to do in the project</a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                        </div>
                     </div>
                     </br>
                     ";
@@ -160,7 +179,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['project'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 124
+        // line 140
         echo "                </div>
             </div>
             <div class=\"col-sm-2 sidenav\">
@@ -182,10 +201,10 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
 </html>";
         
-        $__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e->leave($__internal_c6ad3956d8b02ae9841743b5e4494f13050286e768922ede0852e3e9f2781f4e_prof);
+        $__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274->leave($__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274_prof);
 
         
-        $__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef->leave($__internal_cabcf8b9cd92133a1f9ac977a7f1344df431ca81ff286d2c5552a79f85cf9bef_prof);
+        $__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81->leave($__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81_prof);
 
     }
 
@@ -201,7 +220,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
     public function getDebugInfo()
     {
-        return array (  164 => 124,  154 => 120,  150 => 119,  147 => 118,  143 => 117,  25 => 1,);
+        return array (  183 => 140,  163 => 126,  158 => 124,  150 => 119,  147 => 118,  143 => 117,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -235,7 +254,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
         /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 
         .row.content {
-            height: 550px
+            height: 650px;
         }
 
         /* Set gray background color and 100% height */
@@ -249,7 +268,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
         /* Set black background color, white text and some padding */
 
         footer {
-            position: fixed;
+            /* position: fixed; */
             background-color: #555;
             color: white;
             padding: 15px;
@@ -283,7 +302,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
                     <span class=\"icon-bar\"></span>
                     <span class=\"icon-bar\"></span>
                 </button>
-                <a class=\"navbar-brand\" href=\"#\">Logo</a>
+                <a class=\"navbar-brand\" href=\"/\">Logo</a>
             </div>
             <div class=\"collapse navbar-collapse\" id=\"myNavbar\">
                 <ul class=\"nav navbar-nav\">
@@ -317,7 +336,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
                     <a href=\"/create/project\">Create new project</a>
                 </p>
                 <p>
-                    <a href=\"#\">Edit Existing projects</a>
+                    <a href=\"/edit/projects\">Edit Existing projects</a>
                 </p>
                 <p>
                     <a href=\"#\">Link</a>
@@ -333,7 +352,23 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
                     {% for project in projects %}
                     <div class=\"panel panel-primary\">
                         <div class=\"panel-heading\">{{project.NAME}}</div>
-                        <div class=\"panel-body\">{{project.COMMENT}}</div>
+                        <div class=\"panel-body\">
+                                <table class=\"table\">
+                                  <tbody>
+                                    <tr>
+                                      <td width=\"70%\">{{project.COMMENT}}</td>
+                                      <td width=\"30%\">
+                                          <a href=\"/add/section/{{project.ID}}\">Add a new section</a></br>
+                                          <a href=\"#\">See the details of the project</a></br>
+                                          <a href=\"#\">Here a new option to do in the project</a></br>
+                                          <a href=\"#\">Here a new option to do in the project</a></br>
+                                          <a href=\"#\">Here a new option to do in the project</a></br>
+                                          <a href=\"#\">Here a new option to do in the project</a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                        </div>
                     </div>
                     </br>
                     {% endfor %}
