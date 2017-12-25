@@ -186,6 +186,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // end_task
+        if (0 === strpos($pathinfo, '/end/task') && preg_match('#^/end/task/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'end_task')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::endtaskAction',));
+        }
+
         // update_project
         if (0 === strpos($pathinfo, '/update/project') && preg_match('#^/update/project/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'update_project')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::updateprojectAction',));
@@ -196,14 +201,22 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'delete_project')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::deleteprojectAction',));
         }
 
-        // create_new_section
-        if (0 === strpos($pathinfo, '/add/section') && preg_match('#^/add/section/(?P<proj>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'create_new_section')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::addsectionAction',));
-        }
+        if (0 === strpos($pathinfo, '/add')) {
+            // create_new_section
+            if (0 === strpos($pathinfo, '/add/section') && preg_match('#^/add/section/(?P<proj>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'create_new_section')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::addsectionAction',));
+            }
 
-        // create_new_task
-        if (0 === strpos($pathinfo, '/add/task') && preg_match('#^/add/task/(?P<sect>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'create_new_task')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::addtaskAction',));
+            // create_new_task
+            if (0 === strpos($pathinfo, '/add/task') && preg_match('#^/add/task/(?P<sect>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'create_new_task')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::addtaskAction',));
+            }
+
+            // create_new_reference
+            if (0 === strpos($pathinfo, '/add/reference') && preg_match('#^/add/reference/(?P<task_id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'create_new_reference')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::addreferenceAction',));
+            }
+
         }
 
         // homepage

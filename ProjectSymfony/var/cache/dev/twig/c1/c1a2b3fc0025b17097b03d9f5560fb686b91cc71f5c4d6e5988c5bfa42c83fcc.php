@@ -15,11 +15,11 @@ class __TwigTemplate_53c6ff2317f3e38a8ef3a4e7092cba152702a192638468a0ac3f431cc40
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_fc0171b8fea88260827dc82cd5a318270a79658f9548a0de69504449db90ca0b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_fc0171b8fea88260827dc82cd5a318270a79658f9548a0de69504449db90ca0b->enter($__internal_fc0171b8fea88260827dc82cd5a318270a79658f9548a0de69504449db90ca0b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_task.html.twig"));
+        $__internal_53fb72aa06c6354cf9c5426b498f0f7a3de7a7697c09cff4d00401076819025c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_53fb72aa06c6354cf9c5426b498f0f7a3de7a7697c09cff4d00401076819025c->enter($__internal_53fb72aa06c6354cf9c5426b498f0f7a3de7a7697c09cff4d00401076819025c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_task.html.twig"));
 
-        $__internal_973ce64b588b94d34bbbf5b90aca29bab7d6730e1951912224b782ec54639253 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_973ce64b588b94d34bbbf5b90aca29bab7d6730e1951912224b782ec54639253->enter($__internal_973ce64b588b94d34bbbf5b90aca29bab7d6730e1951912224b782ec54639253_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_task.html.twig"));
+        $__internal_c9d43290617e10315d2565da6859614ee8ccf49421b4e0807da1b071a2402e30 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c9d43290617e10315d2565da6859614ee8ccf49421b4e0807da1b071a2402e30->enter($__internal_c9d43290617e10315d2565da6859614ee8ccf49421b4e0807da1b071a2402e30_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_task.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -104,7 +104,10 @@ class __TwigTemplate_53c6ff2317f3e38a8ef3a4e7092cba152702a192638468a0ac3f431cc40
     </div>
     <!-- here starts the main content -->
     <div class=\"col-sm-8 text-left\"> 
-        <h1>Create a new section:</h1>
+        <h1>Create a new section:</h1><a href=\"/show/section/";
+        // line 83
+        echo twig_escape_filter($this->env, ($context["sect"] ?? $this->getContext($context, "sect")), "html", null, true);
+        echo "\" style=\"float:right;\"><button class=\"btn btn-default\">Go back to the section</button></a></br></br>
         <p style=\"color:green;\">";
         // line 84
         echo twig_escape_filter($this->env, ($context["msg"] ?? $this->getContext($context, "msg")), "html", null, true);
@@ -180,10 +183,10 @@ class __TwigTemplate_53c6ff2317f3e38a8ef3a4e7092cba152702a192638468a0ac3f431cc40
 </html>
 ";
         
-        $__internal_fc0171b8fea88260827dc82cd5a318270a79658f9548a0de69504449db90ca0b->leave($__internal_fc0171b8fea88260827dc82cd5a318270a79658f9548a0de69504449db90ca0b_prof);
+        $__internal_53fb72aa06c6354cf9c5426b498f0f7a3de7a7697c09cff4d00401076819025c->leave($__internal_53fb72aa06c6354cf9c5426b498f0f7a3de7a7697c09cff4d00401076819025c_prof);
 
         
-        $__internal_973ce64b588b94d34bbbf5b90aca29bab7d6730e1951912224b782ec54639253->leave($__internal_973ce64b588b94d34bbbf5b90aca29bab7d6730e1951912224b782ec54639253_prof);
+        $__internal_c9d43290617e10315d2565da6859614ee8ccf49421b4e0807da1b071a2402e30->leave($__internal_c9d43290617e10315d2565da6859614ee8ccf49421b4e0807da1b071a2402e30_prof);
 
     }
 
@@ -199,7 +202,7 @@ class __TwigTemplate_53c6ff2317f3e38a8ef3a4e7092cba152702a192638468a0ac3f431cc40
 
     public function getDebugInfo()
     {
-        return array (  118 => 89,  110 => 84,  25 => 1,);
+        return array (  121 => 89,  113 => 84,  109 => 83,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -294,7 +297,7 @@ class __TwigTemplate_53c6ff2317f3e38a8ef3a4e7092cba152702a192638468a0ac3f431cc40
     </div>
     <!-- here starts the main content -->
     <div class=\"col-sm-8 text-left\"> 
-        <h1>Create a new section:</h1>
+        <h1>Create a new section:</h1><a href=\"/show/section/{{sect}}\" style=\"float:right;\"><button class=\"btn btn-default\">Go back to the section</button></a></br></br>
         <p style=\"color:green;\">{{msg}}</p>
         <form method=\"post\" class=\"form-horizontal\" action=\"/save/task\">
             <div class=\"form-group\">

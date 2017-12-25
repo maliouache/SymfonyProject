@@ -53,7 +53,11 @@ create_new_task:
 submit_new_task:
     path: /save/task
     defaults: { _controller: IPSSymfonyProjectBundle:Default:savetask }
-# a faire
+
+create_new_reference:
+    path: /add/reference/{task_id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:addreference }
+
 show_task:
     path: /show/task/{id}
     defaults: { _controller: IPSSymfonyProjectBundle:Default:showtask }
@@ -61,3 +65,7 @@ show_task:
 show_section:
     path: /show/section/{id}
     defaults: { _controller: IPSSymfonyProjectBundle:Default:showsection }
+
+end_task:
+    path: /end/task/{id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:endtask }

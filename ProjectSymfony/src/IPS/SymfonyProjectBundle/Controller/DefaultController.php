@@ -5,7 +5,10 @@ namespace IPS\SymfonyProjectBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use IPS\SymfonyProjectBundle\Entity\Project;
 use IPS\SymfonyProjectBundle\Entity\Section;
+use IPS\SymfonyProjectBundle\Entity\Reference;
 use IPS\SymfonyProjectBundle\Entity\Task;
+use Symfony\Component\HttpFoundation\Request;
+use IPS\SymfonyProjectBundle\Form\ReferenceType;
 
 class DefaultController extends Controller
 {
@@ -211,5 +214,99 @@ class DefaultController extends Controller
         }
         $section->setSTATUT(floor($cumul/$i));
         $em->flush();
+    }
+
+    public function addreferenceAction($task_id,Request $request){
+        $msg="";
+        $reference=new Reference();
+        $form_ref = $this->get('form.factory')->create(ReferenceType::class, $reference);
+        if ($request->isMethod('POST') && $form_ref->handleRequest($request)->isValid()) {
+            // Ajoutez cette ligne :
+            // c'est elle qui déplace l'image là où on veut les stocker
+            $reference->setTYPE("link");
+            $em = $this->getDoctrine()->getManager();
+            $task=$em->getRepository('IPSSymfonyProjectBundle:Task')->find($task_id);
+            // $task=$em->getRepository('IPSSymfonyProjectBundle:Project')->find($task->getSECTION()->get);
+            $reference->upload($task->getSECTION()->getPROJECT()->getNAME(),$task->getSECTION()->getNAME(),$task->getNAME());
+            // print_r($reference);
+            // Le reste de la méthode reste inchangé
+            // print_r($task);
+            $reference->setTASK($task);
+            $em->persist($reference);
+            $em->flush();
+            $msg='The new reference has been added successfully!';
+            // ...
+        }
+        return $this->get('templating')->renderResponse(
+            'IPSSymfonyProjectBundle::new_reference.html.twig',
+            array('form_ref'  => $form_ref->createView(),
+                  'task_parent' => $task_id,
+                  'msg' => $msg)
+        ); 
+    }
+
+    public function showtaskAction($id){
+        $em=$this->getDoctrine()->getManager();
+        $task=$em->getRepository('IPSSymfonyProjectBundle:Task')->find($id);
+        $references=$em->getRepository('IPSSymfonyProjectBundle:Reference')->findBy(array('TASK'=>$task));
+        $add="";$end="";
+        if ($task->getADDDATE()!=null){
+            $add=$task->getADDDATE()->format("m-d-Y");
+        }
+        if ($task->getENDDATE()!=null) {
+            $end=$task->getENDDATE()->format("m-d-Y");
+        }
+        return $this->get('templating')->renderResponse(
+            'IPSSymfonyProjectBundle::task.html.twig',
+            array('task'  => $task,
+                  'references' => $references,
+                  'section' => $task->getSECTION(),
+                  'project' => $task->getSECTION()->getPROJECT(),
+                  'ADDDATE'=>$add,
+                  'ENDDATE'=>$end)
+        ); 
+    }
+
+    public function showsectionAction($id){
+        $em=$this->getDoctrine()->getManager();
+        $section=$em->getRepository('IPSSymfonyProjectBundle:Section')->find($id);
+        $tasks=$em->getRepository('IPSSymfonyProjectBundle:Task')->findBy(array('SECTION'=>$section));
+        $add="";$end="";$i=0;
+        foreach ($tasks as $task){
+            if ($task->getADDDATE()!=null){
+                $add=$task->getADDDATE()->format("m-d-Y");
+            }
+            if ($task->getENDDATE()!=null) {
+                $end=$task->getENDDATE()->format("m-d-Y");
+            }
+            $tasks[$i]->end=$end;
+            $tasks[$i]->add=$add;
+            $i=$i+1;
+        }
+        $add="";$end="";
+        if ($section->getADDDATE()!=null){
+            $add=$section->getADDDATE()->format("m-d-Y");
+        }
+        if ($section->getENDDATE()!=null) {
+            $end=$section->getENDDATE()->format("m-d-Y");
+        }
+        return $this->get('templating')->renderResponse(
+            'IPSSymfonyProjectBundle::section.html.twig',
+            array('tasks'  => $tasks,
+                  'section' => $section,
+                  'project' => $section->getPROJECT(),
+                  'add' => $add,
+                  'end' => $end)
+        ); 
+    }
+
+    public function endtaskAction($id){
+        $em=$this->getDoctrine()->getManager();
+        $task=$em->getRepository('IPSSymfonyProjectBundle:Task')->find($id);
+        $task->setSTATUT(100);
+        $task->setENDDATE(new \DateTime());
+        $em->flush();
+        $this->updatestatut($task->getSECTION());
+        return $this->showtaskAction($id);
     }
 }
