@@ -138,15 +138,17 @@
                             <tr>
                                 <td width="50%">Statut: <b>{{section.STATUT}}</b></br>
                                   {{section.COMMENT}}</br>
-                                    <a href="/add/task/{{section.ID}}">Add a new task</a></br>
-                                    <a href="/show/section/{{section.ID}}">See the details of the section</a></br>
-                                    <a href="#">Here a new option to do in the section</a></br>
-                                    <a href="#">Here a new option to do in the section</a></br>
-                                    <a href="#">Here a new option to do in the section</a></br>
-                                    <a href="/section/references/{{section.ID}}">References/Bibliography</a>
+                                  <a href="/add/task/{{section.ID}}">Add a new task</a></br>
+                                  <a href="/show/section/{{section.ID}}">See the details of the section</a></br>
+                                  <a href="#">Here a new option to do in the section</a></br>
+                                  <a href="#">Here a new option to do in the section</a></br>
+                                  <a href="#">Here a new option to do in the section</a></br>
+                                  <a href="/section/references/{{section.ID}}">References/Bibliography</a>
                                 </td>
-                                <td>
-                                  
+                                <td width="50%"><b>Tasks list:</b></br>
+                                  {% for task in section.tasks %}
+                                  <a href="/show/task/{{task.ID}}">{{task.NAME}}</a>=>{{task.INCHARGE}}<div style="float:right;"><img {% if task.STATUT==0 %} src="https://cdn2.iconfinder.com/data/icons/seo-web-optomization-ultimate-set/512/time_efficiency-512.png"{% endif %} {% if task.STATUT==100 %} src="http://hddfhm.com/images/check-mark-clipart-9.png"{% endif %} height="15px" width="15px" alt="progress"/></div></br>
+                                  {% endfor %}
                                 </td>
                             </tr>
                         </tbody>

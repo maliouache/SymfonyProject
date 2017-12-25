@@ -15,11 +15,11 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae->enter($__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::project.html.twig"));
+        $__internal_2197d973d83776bb64c890767e53ece1d9685d02907193028edb31ca9d4fa0fd = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_2197d973d83776bb64c890767e53ece1d9685d02907193028edb31ca9d4fa0fd->enter($__internal_2197d973d83776bb64c890767e53ece1d9685d02907193028edb31ca9d4fa0fd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::project.html.twig"));
 
-        $__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948->enter($__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::project.html.twig"));
+        $__internal_433f3814c3c15161d728412ec80c43976d03b3d5cf15ae0aa162e94318b77cc2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_433f3814c3c15161d728412ec80c43976d03b3d5cf15ae0aa162e94318b77cc2->enter($__internal_433f3814c3c15161d728412ec80c43976d03b3d5cf15ae0aa162e94318b77cc2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::project.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -241,25 +241,51 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
             // line 140
             echo twig_escape_filter($this->env, $this->getAttribute($context["section"], "COMMENT", array()), "html", null, true);
             echo "</br>
-                                    <a href=\"/add/task/";
+                                  <a href=\"/add/task/";
             // line 141
             echo twig_escape_filter($this->env, $this->getAttribute($context["section"], "ID", array()), "html", null, true);
             echo "\">Add a new task</a></br>
-                                    <a href=\"/show/section/";
+                                  <a href=\"/show/section/";
             // line 142
             echo twig_escape_filter($this->env, $this->getAttribute($context["section"], "ID", array()), "html", null, true);
             echo "\">See the details of the section</a></br>
-                                    <a href=\"#\">Here a new option to do in the section</a></br>
-                                    <a href=\"#\">Here a new option to do in the section</a></br>
-                                    <a href=\"#\">Here a new option to do in the section</a></br>
-                                    <a href=\"/section/references/";
+                                  <a href=\"#\">Here a new option to do in the section</a></br>
+                                  <a href=\"#\">Here a new option to do in the section</a></br>
+                                  <a href=\"#\">Here a new option to do in the section</a></br>
+                                  <a href=\"/section/references/";
             // line 146
             echo twig_escape_filter($this->env, $this->getAttribute($context["section"], "ID", array()), "html", null, true);
             echo "\">References/Bibliography</a>
                                 </td>
-                                <td>
-                                  
-                                </td>
+                                <td width=\"50%\"><b>Tasks list:</b></br>
+                                  ";
+            // line 149
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["section"], "tasks", array()));
+            foreach ($context['_seq'] as $context["_key"] => $context["task"]) {
+                // line 150
+                echo "                                  <a href=\"/show/task/";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["task"], "ID", array()), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["task"], "NAME", array()), "html", null, true);
+                echo "</a>=>";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["task"], "INCHARGE", array()), "html", null, true);
+                echo "<div style=\"float:right;\"><img ";
+                if (($this->getAttribute($context["task"], "STATUT", array()) == 0)) {
+                    echo " src=\"https://cdn2.iconfinder.com/data/icons/seo-web-optomization-ultimate-set/512/time_efficiency-512.png\"";
+                }
+                echo " ";
+                if (($this->getAttribute($context["task"], "STATUT", array()) == 100)) {
+                    echo " src=\"http://hddfhm.com/images/check-mark-clipart-9.png\"";
+                }
+                echo " height=\"15px\" width=\"15px\" alt=\"progress\"/></div></br>
+                                  ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['task'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 152
+            echo "                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -270,7 +296,7 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['section'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 157
+        // line 159
         echo "        <!-- </div> -->
         <!-- </ul> -->
 
@@ -295,10 +321,10 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
 </html>
 ";
         
-        $__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae->leave($__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae_prof);
+        $__internal_2197d973d83776bb64c890767e53ece1d9685d02907193028edb31ca9d4fa0fd->leave($__internal_2197d973d83776bb64c890767e53ece1d9685d02907193028edb31ca9d4fa0fd_prof);
 
         
-        $__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948->leave($__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948_prof);
+        $__internal_433f3814c3c15161d728412ec80c43976d03b3d5cf15ae0aa162e94318b77cc2->leave($__internal_433f3814c3c15161d728412ec80c43976d03b3d5cf15ae0aa162e94318b77cc2_prof);
 
     }
 
@@ -314,7 +340,7 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
 
     public function getDebugInfo()
     {
-        return array (  274 => 157,  257 => 146,  250 => 142,  246 => 141,  242 => 140,  238 => 139,  230 => 134,  222 => 129,  219 => 128,  212 => 124,  208 => 123,  204 => 122,  201 => 121,  198 => 120,  191 => 116,  187 => 115,  183 => 114,  180 => 113,  177 => 112,  170 => 108,  166 => 107,  162 => 106,  159 => 105,  156 => 104,  149 => 100,  145 => 99,  141 => 98,  138 => 97,  136 => 96,  131 => 94,  124 => 90,  121 => 89,  117 => 88,  111 => 85,  25 => 1,);
+        return array (  300 => 159,  288 => 152,  267 => 150,  263 => 149,  257 => 146,  250 => 142,  246 => 141,  242 => 140,  238 => 139,  230 => 134,  222 => 129,  219 => 128,  212 => 124,  208 => 123,  204 => 122,  201 => 121,  198 => 120,  191 => 116,  187 => 115,  183 => 114,  180 => 113,  177 => 112,  170 => 108,  166 => 107,  162 => 106,  159 => 105,  156 => 104,  149 => 100,  145 => 99,  141 => 98,  138 => 97,  136 => 96,  131 => 94,  124 => 90,  121 => 89,  117 => 88,  111 => 85,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -467,15 +493,17 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
                             <tr>
                                 <td width=\"50%\">Statut: <b>{{section.STATUT}}</b></br>
                                   {{section.COMMENT}}</br>
-                                    <a href=\"/add/task/{{section.ID}}\">Add a new task</a></br>
-                                    <a href=\"/show/section/{{section.ID}}\">See the details of the section</a></br>
-                                    <a href=\"#\">Here a new option to do in the section</a></br>
-                                    <a href=\"#\">Here a new option to do in the section</a></br>
-                                    <a href=\"#\">Here a new option to do in the section</a></br>
-                                    <a href=\"/section/references/{{section.ID}}\">References/Bibliography</a>
+                                  <a href=\"/add/task/{{section.ID}}\">Add a new task</a></br>
+                                  <a href=\"/show/section/{{section.ID}}\">See the details of the section</a></br>
+                                  <a href=\"#\">Here a new option to do in the section</a></br>
+                                  <a href=\"#\">Here a new option to do in the section</a></br>
+                                  <a href=\"#\">Here a new option to do in the section</a></br>
+                                  <a href=\"/section/references/{{section.ID}}\">References/Bibliography</a>
                                 </td>
-                                <td>
-                                  
+                                <td width=\"50%\"><b>Tasks list:</b></br>
+                                  {% for task in section.tasks %}
+                                  <a href=\"/show/task/{{task.ID}}\">{{task.NAME}}</a>=>{{task.INCHARGE}}<div style=\"float:right;\"><img {% if task.STATUT==0 %} src=\"https://cdn2.iconfinder.com/data/icons/seo-web-optomization-ultimate-set/512/time_efficiency-512.png\"{% endif %} {% if task.STATUT==100 %} src=\"http://hddfhm.com/images/check-mark-clipart-9.png\"{% endif %} height=\"15px\" width=\"15px\" alt=\"progress\"/></div></br>
+                                  {% endfor %}
                                 </td>
                             </tr>
                         </tbody>

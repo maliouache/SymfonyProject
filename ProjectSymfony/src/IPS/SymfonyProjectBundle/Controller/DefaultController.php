@@ -162,6 +162,12 @@ class DefaultController extends Controller
         $em=$this->getDoctrine()->getManager();
         $project=$em->getRepository('IPSSymfonyProjectBundle:Project')->find($id);
         $sections=$em->getRepository('IPSSymfonyProjectBundle:Section')->findBy(array('PROJECT'=>$project));
+        $j=0;
+        foreach ($sections as $section){
+            $tasks=$em->getRepository('IPSSymfonyProjectBundle:Task')->findBy(array('SECTION'=>$section));
+            $sections[$j]->tasks=$tasks;
+            $j=$j+1;
+        }
         return $this->get('templating')->renderResponse(
             'IPSSymfonyProjectBundle::project.html.twig',
             array('project'  => $project,
