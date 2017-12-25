@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      /* position: fixed; */
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="#">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="/create/project">Create new project</a></p>
+      <p><a href="/edit/projects">Edit Existing projects</a></p>
+      <p><a href="#">Link</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+        <!-- here starts the main content -->
+
+        <h1>{{project.NAME}}</h1>
+        <!-- <ul> -->
+        <!-- <div class="btn-group-vertical"> -->
+        {% for section in sections %}
+            <!-- <li> -->
+                <button type="button" class="btn btn-default btn-block" data-toggle="collapse" data-target="#demo{{section.ID}}">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td width="50%"><b>{{section.NAME}}</b></td>
+                                <td width="30%">
+                                    {% if section.STATUT<=24 %}
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{section.STATUT}}"
+                                        aria-valuemin="0" aria-valuemax="100" style="width:{{section.STATUT}}%">
+                                            {{section.STATUT}}% Complete
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% if section.STATUT>=24 and section.STATUT<=49 %}
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{section.STATUT}}"
+                                        aria-valuemin="0" aria-valuemax="100" style="width:{{section.STATUT}}%">
+                                            {{section.STATUT}}% Complete
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% if section.STATUT<=99 and section.STATUT>=50 %}
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{section.STATUT}}"
+                                        aria-valuemin="0" aria-valuemax="100" style="width:{{section.STATUT}}%">
+                                            {{section.STATUT}}% Complete
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% if section.STATUT==100 %}
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{section.STATUT}}"
+                                        aria-valuemin="0" aria-valuemax="100" style="width:{{section.STATUT}}%">
+                                            {{section.STATUT}}% Complete
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </td>
+                                <td width="20%">{{section.IMPORTANCE}}</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </button>
+                <div id="demo{{section.ID}}" class="collapse">
+                    
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td width="100%">Statut: <b>{{section.STATUT}}</b></br>{{section.COMMENT}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <!-- </li> -->
+        {% endfor %}
+        <!-- </div> -->
+        <!-- </ul> -->
+
+        <!-- here ends the main content -->
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+</html>

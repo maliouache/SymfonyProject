@@ -50,7 +50,7 @@ class Section
     private $aDDDATE;
 
     /**
-     * @var string
+     * @var int
      *
      * @ORM\Column(name="STATUT", type="string", length=255)
      */
@@ -190,7 +190,7 @@ class Section
     /**
      * Set sTATUT
      *
-     * @param string $sTATUT
+     * @param int $sTATUT
      *
      * @return Section
      */
@@ -204,7 +204,7 @@ class Section
     /**
      * Get sTATUT
      *
-     * @return string
+     * @return int
      */
     public function getSTATUT()
     {
@@ -245,7 +245,7 @@ class Section
         $this->setADDDATE(new \Datetime());
         $this->setPROJECT($project);
         $this->setCOMMENT($comment);
-        $this->setSTATUT("CREATED");
+        $this->setSTATUT(0);
     }
 }
 

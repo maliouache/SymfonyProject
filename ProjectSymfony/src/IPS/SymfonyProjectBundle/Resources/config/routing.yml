@@ -41,3 +41,7 @@ create_new_section:
 submit_new_section:
     path: /save/section
     defaults: { _controller: IPSSymfonyProjectBundle:Default:savesection }
+
+show_project:
+    path: /show/project/{id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:showproject }

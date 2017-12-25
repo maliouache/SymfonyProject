@@ -15,11 +15,11 @@ class __TwigTemplate_7ba66e2ccd894799028cfd8f3eca0d8bcc209695a7ecae8dc45a2a856ad
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1af3bb4aa2cf78a871c3378dd8a9ad9eaaf6bad48ee21db98f4ffa478c38d510 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1af3bb4aa2cf78a871c3378dd8a9ad9eaaf6bad48ee21db98f4ffa478c38d510->enter($__internal_1af3bb4aa2cf78a871c3378dd8a9ad9eaaf6bad48ee21db98f4ffa478c38d510_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_section.html.twig"));
+        $__internal_0ef94129db2e1cc95721f73aad9980846be9cd63fe54ed0d47f7b789c47634e5 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_0ef94129db2e1cc95721f73aad9980846be9cd63fe54ed0d47f7b789c47634e5->enter($__internal_0ef94129db2e1cc95721f73aad9980846be9cd63fe54ed0d47f7b789c47634e5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_section.html.twig"));
 
-        $__internal_5ecf89c28d77d9da01517de4d373eb385395303cc7aba21d3e1b003cd9911ec6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_5ecf89c28d77d9da01517de4d373eb385395303cc7aba21d3e1b003cd9911ec6->enter($__internal_5ecf89c28d77d9da01517de4d373eb385395303cc7aba21d3e1b003cd9911ec6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_section.html.twig"));
+        $__internal_4c6cce5497182eb457c2f2655a2ff17b9b8516f5dce067ebd7f27cb8510ea2f9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4c6cce5497182eb457c2f2655a2ff17b9b8516f5dce067ebd7f27cb8510ea2f9->enter($__internal_4c6cce5497182eb457c2f2655a2ff17b9b8516f5dce067ebd7f27cb8510ea2f9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::new_section.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -50,7 +50,6 @@ class __TwigTemplate_7ba66e2ccd894799028cfd8f3eca0d8bcc209695a7ecae8dc45a2a856ad
     
     /* Set black background color, white text and some padding */
     footer {
-      position: fixed;
       background-color: #555;
       color: white;
       padding: 15px;
@@ -107,7 +106,7 @@ class __TwigTemplate_7ba66e2ccd894799028cfd8f3eca0d8bcc209695a7ecae8dc45a2a856ad
     <div class=\"col-sm-8 text-left\"> 
         <h1>Create a new section:</h1>
         <p style=\"color:green;\">";
-        // line 85
+        // line 84
         echo twig_escape_filter($this->env, ($context["msg"] ?? $this->getContext($context, "msg")), "html", null, true);
         echo "</p>
         <form method=\"post\" class=\"form-horizontal\" action=\"/save/section\">
@@ -115,7 +114,7 @@ class __TwigTemplate_7ba66e2ccd894799028cfd8f3eca0d8bcc209695a7ecae8dc45a2a856ad
                 <div class=\"col-sm-10\">
                     <input class=\"form-control\" type=\"hidden\" 
                         name=\"proj\" id=\"proj\" value=\"";
-        // line 90
+        // line 89
         echo twig_escape_filter($this->env, ($context["proj"] ?? $this->getContext($context, "proj")), "html", null, true);
         echo "\"/>
                 </div>
@@ -174,10 +173,10 @@ class __TwigTemplate_7ba66e2ccd894799028cfd8f3eca0d8bcc209695a7ecae8dc45a2a856ad
 </html>
 ";
         
-        $__internal_1af3bb4aa2cf78a871c3378dd8a9ad9eaaf6bad48ee21db98f4ffa478c38d510->leave($__internal_1af3bb4aa2cf78a871c3378dd8a9ad9eaaf6bad48ee21db98f4ffa478c38d510_prof);
+        $__internal_0ef94129db2e1cc95721f73aad9980846be9cd63fe54ed0d47f7b789c47634e5->leave($__internal_0ef94129db2e1cc95721f73aad9980846be9cd63fe54ed0d47f7b789c47634e5_prof);
 
         
-        $__internal_5ecf89c28d77d9da01517de4d373eb385395303cc7aba21d3e1b003cd9911ec6->leave($__internal_5ecf89c28d77d9da01517de4d373eb385395303cc7aba21d3e1b003cd9911ec6_prof);
+        $__internal_4c6cce5497182eb457c2f2655a2ff17b9b8516f5dce067ebd7f27cb8510ea2f9->leave($__internal_4c6cce5497182eb457c2f2655a2ff17b9b8516f5dce067ebd7f27cb8510ea2f9_prof);
 
     }
 
@@ -193,7 +192,7 @@ class __TwigTemplate_7ba66e2ccd894799028cfd8f3eca0d8bcc209695a7ecae8dc45a2a856ad
 
     public function getDebugInfo()
     {
-        return array (  119 => 90,  111 => 85,  25 => 1,);
+        return array (  118 => 89,  110 => 84,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -234,7 +233,6 @@ class __TwigTemplate_7ba66e2ccd894799028cfd8f3eca0d8bcc209695a7ecae8dc45a2a856ad
     
     /* Set black background color, white text and some padding */
     footer {
-      position: fixed;
       background-color: #555;
       color: white;
       padding: 15px;

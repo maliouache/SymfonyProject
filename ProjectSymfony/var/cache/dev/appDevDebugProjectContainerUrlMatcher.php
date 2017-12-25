@@ -132,14 +132,22 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::newprojectAction',  '_route' => 'create_new_project',);
         }
 
-        // submit_new_project
-        if ('/save/project' === $pathinfo) {
-            return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::saveprojectAction',  '_route' => 'submit_new_project',);
-        }
+        if (0 === strpos($pathinfo, '/s')) {
+            // submit_new_project
+            if ('/save/project' === $pathinfo) {
+                return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::saveprojectAction',  '_route' => 'submit_new_project',);
+            }
 
-        // submit_new_section
-        if ('/save/section' === $pathinfo) {
-            return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::savesectionAction',  '_route' => 'submit_new_section',);
+            // submit_new_section
+            if ('/save/section' === $pathinfo) {
+                return array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::savesectionAction',  '_route' => 'submit_new_section',);
+            }
+
+            // show_project
+            if (0 === strpos($pathinfo, '/show/project') && preg_match('#^/show/project/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_project')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::showprojectAction',));
+            }
+
         }
 
         // show_projects

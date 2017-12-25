@@ -31,8 +31,23 @@ class DefaultController extends Controller
     }
 
     public function showprojectsAction(){
-        $rep_proj=$this->getDoctrine()->getManager()->getRepository('IPSSymfonyProjectBundle:Project');
-        $projects=$rep_proj->findAll();
+        $em=$this->getDoctrine()->getManager();
+        $projects=$em->getRepository('IPSSymfonyProjectBundle:Project')->findAll();
+        $j=0;
+        foreach ($projects as $project){
+            $sections=$em->getRepository('IPSSymfonyProjectBundle:Section')->findBy(array('PROJECT'=>$project));
+            $i=0;$cumul=0;
+            foreach ($sections as $section){
+                $cumul=$cumul+$section->getSTATUT();
+                $i=$i+1;
+            }
+            if ($i==0){
+                $i=1;
+            }
+            $projects[$j]->progress=$cumul/$i;
+            $j=$j+1;
+        }
+        // print_r($projects[0]);
         return $this->get('templating')->renderResponse(
             'IPSSymfonyProjectBundle::projects.html.twig',
             array('projects'  => $projects)
@@ -140,5 +155,16 @@ class DefaultController extends Controller
         $em->persist($section);
         $em->flush();
         return $this->addsectionAction($project->getId(),"OK");
+    }
+
+    public function showprojectAction($id){
+        $em=$this->getDoctrine()->getManager();
+        $project=$em->getRepository('IPSSymfonyProjectBundle:Project')->find($id);
+        $sections=$em->getRepository('IPSSymfonyProjectBundle:Section')->findBy(array('PROJECT'=>$project));
+        return $this->get('templating')->renderResponse(
+            'IPSSymfonyProjectBundle::project.html.twig',
+            array('project'  => $project,
+                  'sections' => $sections)
+        ); 
     }
 }

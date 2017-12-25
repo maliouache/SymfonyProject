@@ -15,11 +15,11 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274->enter($__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
+        $__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601->enter($__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
 
-        $__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81->enter($__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
+        $__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6->enter($__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -145,21 +145,112 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
         foreach ($context['_seq'] as $context["_key"] => $context["project"]) {
             // line 118
             echo "                    <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">";
+                        <div class=\"panel-heading\"><a href=\"/show/project/";
             // line 119
+            echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "ID", array()), "html", null, true);
+            echo "\"><b style=\"color:black;\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "NAME", array()), "html", null, true);
-            echo "</div>
+            echo "</b></a></div>
                         <div class=\"panel-body\">
                                 <table class=\"table\">
                                   <tbody>
                                     <tr>
-                                      <td width=\"70%\">";
-            // line 124
+                                        <td width=\"70%\">
+                                            <b>Total Progress: </b>
+                                            ";
+            // line 126
+            if (($this->getAttribute($context["project"], "progress", array()) <= 24)) {
+                // line 127
+                echo "                                            <div class=\"progress\">
+                                                <div class=\"progress-bar progress-bar-danger\" role=\"progressbar\" aria-valuenow=\"";
+                // line 128
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "\"
+                                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:";
+                // line 129
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "%\">
+                                                    ";
+                // line 130
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "% Complete
+                                                </div>
+                                            </div>
+                                            ";
+            }
+            // line 134
+            echo "                                            ";
+            if ((($this->getAttribute($context["project"], "progress", array()) >= 24) && ($this->getAttribute($context["project"], "progress", array()) <= 49))) {
+                // line 135
+                echo "                                            <div class=\"progress\">
+                                                <div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" aria-valuenow=\"";
+                // line 136
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "\"
+                                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:";
+                // line 137
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "%\">
+                                                    ";
+                // line 138
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "% Complete
+                                                </div>
+                                            </div>
+                                            ";
+            }
+            // line 142
+            echo "                                            ";
+            if ((($this->getAttribute($context["project"], "progress", array()) <= 99) && ($this->getAttribute($context["project"], "progress", array()) >= 50))) {
+                // line 143
+                echo "                                            <div class=\"progress\">
+                                                <div class=\"progress-bar progress-bar-info\" role=\"progressbar\" aria-valuenow=\"";
+                // line 144
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "\"
+                                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:";
+                // line 145
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "%\">
+                                                    ";
+                // line 146
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "% Complete
+                                                </div>
+                                            </div>
+                                            ";
+            }
+            // line 150
+            echo "                                            ";
+            if (($this->getAttribute($context["project"], "progress", array()) == 100)) {
+                // line 151
+                echo "                                            <div class=\"progress\">
+                                                <div class=\"progress-bar progress-bar-success\" role=\"progressbar\" aria-valuenow=\"";
+                // line 152
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "\"
+                                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:";
+                // line 153
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "%\">
+                                                    ";
+                // line 154
+                echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "progress", array()), "html", null, true);
+                echo "% Complete
+                                                </div>
+                                            </div>
+                                            ";
+            }
+            // line 157
+            echo "</br>
+                                            ";
+            // line 158
             echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "COMMENT", array()), "html", null, true);
-            echo "</td>
+            echo "
+                                        </td>
                                       <td width=\"30%\">
                                           <a href=\"/add/section/";
-            // line 126
+            // line 161
             echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "ID", array()), "html", null, true);
             echo "\">Add a new section</a></br>
                                           <a href=\"#\">See the details of the project</a></br>
@@ -179,7 +270,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['project'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 140
+        // line 175
         echo "                </div>
             </div>
             <div class=\"col-sm-2 sidenav\">
@@ -201,10 +292,10 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
 </html>";
         
-        $__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274->leave($__internal_1138e839038dfa92f803b763c3d6470ddf23450a91b012ab154485b2b36b9274_prof);
+        $__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601->leave($__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601_prof);
 
         
-        $__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81->leave($__internal_62982dd7ea517ae9db1acf01b295e959e2447c7f1952795a5a3f1f7c88831f81_prof);
+        $__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6->leave($__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6_prof);
 
     }
 
@@ -220,7 +311,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
     public function getDebugInfo()
     {
-        return array (  183 => 140,  163 => 126,  158 => 124,  150 => 119,  147 => 118,  143 => 117,  25 => 1,);
+        return array (  274 => 175,  254 => 161,  248 => 158,  245 => 157,  238 => 154,  234 => 153,  230 => 152,  227 => 151,  224 => 150,  217 => 146,  213 => 145,  209 => 144,  206 => 143,  203 => 142,  196 => 138,  192 => 137,  188 => 136,  185 => 135,  182 => 134,  175 => 130,  171 => 129,  167 => 128,  164 => 127,  162 => 126,  150 => 119,  147 => 118,  143 => 117,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -351,12 +442,47 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
                 <div class=\"panel-group\">
                     {% for project in projects %}
                     <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">{{project.NAME}}</div>
+                        <div class=\"panel-heading\"><a href=\"/show/project/{{project.ID}}\"><b style=\"color:black;\">{{project.NAME}}</b></a></div>
                         <div class=\"panel-body\">
                                 <table class=\"table\">
                                   <tbody>
                                     <tr>
-                                      <td width=\"70%\">{{project.COMMENT}}</td>
+                                        <td width=\"70%\">
+                                            <b>Total Progress: </b>
+                                            {% if project.progress<=24 %}
+                                            <div class=\"progress\">
+                                                <div class=\"progress-bar progress-bar-danger\" role=\"progressbar\" aria-valuenow=\"{{project.progress}}\"
+                                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{{project.progress}}%\">
+                                                    {{project.progress}}% Complete
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if project.progress>=24 and project.progress<=49 %}
+                                            <div class=\"progress\">
+                                                <div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" aria-valuenow=\"{{project.progress}}\"
+                                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{{project.progress}}%\">
+                                                    {{project.progress}}% Complete
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if project.progress<=99 and project.progress>=50 %}
+                                            <div class=\"progress\">
+                                                <div class=\"progress-bar progress-bar-info\" role=\"progressbar\" aria-valuenow=\"{{project.progress}}\"
+                                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{{project.progress}}%\">
+                                                    {{project.progress}}% Complete
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if project.progress==100 %}
+                                            <div class=\"progress\">
+                                                <div class=\"progress-bar progress-bar-success\" role=\"progressbar\" aria-valuenow=\"{{project.progress}}\"
+                                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{{project.progress}}%\">
+                                                    {{project.progress}}% Complete
+                                                </div>
+                                            </div>
+                                            {% endif %}</br>
+                                            {{project.COMMENT}}
+                                        </td>
                                       <td width=\"30%\">
                                           <a href=\"/add/section/{{project.ID}}\">Add a new section</a></br>
                                           <a href=\"#\">See the details of the project</a></br>

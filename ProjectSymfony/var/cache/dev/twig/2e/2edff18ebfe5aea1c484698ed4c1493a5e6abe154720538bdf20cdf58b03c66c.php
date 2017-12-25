@@ -15,11 +15,11 @@ class __TwigTemplate_8c50e7c09312ef0292b16bec1005598597cb9a2d8c8067ce5783c09cdcc
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_28e18d207e297df0b0812dd230818f558c6af95bff07a47c92c926477cf0769d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_28e18d207e297df0b0812dd230818f558c6af95bff07a47c92c926477cf0769d->enter($__internal_28e18d207e297df0b0812dd230818f558c6af95bff07a47c92c926477cf0769d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::edit_projects.html.twig"));
+        $__internal_5c825fb4057880416756d1a9ee1f934707b1bf323f715db29eabe051381baff4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5c825fb4057880416756d1a9ee1f934707b1bf323f715db29eabe051381baff4->enter($__internal_5c825fb4057880416756d1a9ee1f934707b1bf323f715db29eabe051381baff4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::edit_projects.html.twig"));
 
-        $__internal_9e23d573a148394052570590e49602253c7849f201a3bd1677ebdd9d694603ac = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9e23d573a148394052570590e49602253c7849f201a3bd1677ebdd9d694603ac->enter($__internal_9e23d573a148394052570590e49602253c7849f201a3bd1677ebdd9d694603ac_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::edit_projects.html.twig"));
+        $__internal_f7165d288c002e1f74751543d760b9b8ab7deb9dfada270f4421c72929002c61 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f7165d288c002e1f74751543d760b9b8ab7deb9dfada270f4421c72929002c61->enter($__internal_f7165d288c002e1f74751543d760b9b8ab7deb9dfada270f4421c72929002c61_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::edit_projects.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -148,10 +148,12 @@ class __TwigTemplate_8c50e7c09312ef0292b16bec1005598597cb9a2d8c8067ce5783c09cdcc
         foreach ($context['_seq'] as $context["_key"] => $context["project"]) {
             // line 121
             echo "                    <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">";
+                        <div class=\"panel-heading\"><a href=\"/show/project/";
             // line 122
+            echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "ID", array()), "html", null, true);
+            echo "\"><b style=\"color:black;\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "NAME", array()), "html", null, true);
-            echo "<a href=\"/delete/project/";
+            echo "</b></a><a href=\"/delete/project/";
             echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "ID", array()), "html", null, true);
             echo "\" class=\"edit_btn\"><button class=\"btn btn-danger btn-sm\">Delete</button></a><a href=\"/edit/project/";
             echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "ID", array()), "html", null, true);
@@ -191,10 +193,10 @@ class __TwigTemplate_8c50e7c09312ef0292b16bec1005598597cb9a2d8c8067ce5783c09cdcc
 
 </html>";
         
-        $__internal_28e18d207e297df0b0812dd230818f558c6af95bff07a47c92c926477cf0769d->leave($__internal_28e18d207e297df0b0812dd230818f558c6af95bff07a47c92c926477cf0769d_prof);
+        $__internal_5c825fb4057880416756d1a9ee1f934707b1bf323f715db29eabe051381baff4->leave($__internal_5c825fb4057880416756d1a9ee1f934707b1bf323f715db29eabe051381baff4_prof);
 
         
-        $__internal_9e23d573a148394052570590e49602253c7849f201a3bd1677ebdd9d694603ac->leave($__internal_9e23d573a148394052570590e49602253c7849f201a3bd1677ebdd9d694603ac_prof);
+        $__internal_f7165d288c002e1f74751543d760b9b8ab7deb9dfada270f4421c72929002c61->leave($__internal_f7165d288c002e1f74751543d760b9b8ab7deb9dfada270f4421c72929002c61_prof);
 
     }
 
@@ -210,7 +212,7 @@ class __TwigTemplate_8c50e7c09312ef0292b16bec1005598597cb9a2d8c8067ce5783c09cdcc
 
     public function getDebugInfo()
     {
-        return array (  171 => 127,  161 => 123,  153 => 122,  150 => 121,  146 => 120,  25 => 1,);
+        return array (  173 => 127,  163 => 123,  153 => 122,  150 => 121,  146 => 120,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -344,7 +346,7 @@ class __TwigTemplate_8c50e7c09312ef0292b16bec1005598597cb9a2d8c8067ce5783c09cdcc
                 <div class=\"panel-group\">
                     {% for project in projects %}
                     <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading\">{{project.NAME}}<a href=\"/delete/project/{{project.ID}}\" class=\"edit_btn\"><button class=\"btn btn-danger btn-sm\">Delete</button></a><a href=\"/edit/project/{{project.ID}}\" class=\"edit_btn\"><button class=\"btn btn-warning btn-sm\">Edit</button></a></div>
+                        <div class=\"panel-heading\"><a href=\"/show/project/{{project.ID}}\"><b style=\"color:black;\">{{project.NAME}}</b></a><a href=\"/delete/project/{{project.ID}}\" class=\"edit_btn\"><button class=\"btn btn-danger btn-sm\">Delete</button></a><a href=\"/edit/project/{{project.ID}}\" class=\"edit_btn\"><button class=\"btn btn-warning btn-sm\">Edit</button></a></div>
                         <div class=\"panel-body\">{{project.COMMENT}}</div>
                     </div>
                     </br>
