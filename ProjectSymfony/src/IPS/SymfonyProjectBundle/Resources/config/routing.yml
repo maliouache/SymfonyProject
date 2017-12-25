@@ -45,3 +45,19 @@ submit_new_section:
 show_project:
     path: /show/project/{id}
     defaults: { _controller: IPSSymfonyProjectBundle:Default:showproject }
+
+create_new_task:
+    path: /add/task/{sect}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:addtask }
+
+submit_new_task:
+    path: /save/task
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:savetask }
+# a faire
+show_task:
+    path: /show/task/{id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:showtask }
+
+show_section:
+    path: /show/section/{id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:showsection }

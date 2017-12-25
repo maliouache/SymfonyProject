@@ -15,11 +15,11 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_63bdd9166300cb85d3f24a2760d12b8bcb7d4d4483d6bff1c2428d42f8265a83 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_63bdd9166300cb85d3f24a2760d12b8bcb7d4d4483d6bff1c2428d42f8265a83->enter($__internal_63bdd9166300cb85d3f24a2760d12b8bcb7d4d4483d6bff1c2428d42f8265a83_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::edit_project.html.twig"));
+        $__internal_79e769087568086949c54443da6e7ba4a366b87f9fd0ace82e6a756af75ce9e5 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_79e769087568086949c54443da6e7ba4a366b87f9fd0ace82e6a756af75ce9e5->enter($__internal_79e769087568086949c54443da6e7ba4a366b87f9fd0ace82e6a756af75ce9e5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::edit_project.html.twig"));
 
-        $__internal_3cb4e26ebe7dd0b1abf646bcfbae4153d94cb7d07280a2a7bb5c801482b56a93 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3cb4e26ebe7dd0b1abf646bcfbae4153d94cb7d07280a2a7bb5c801482b56a93->enter($__internal_3cb4e26ebe7dd0b1abf646bcfbae4153d94cb7d07280a2a7bb5c801482b56a93_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::edit_project.html.twig"));
+        $__internal_b3935702a3549d8d9a3fd3b515b42b6fc2b6ae90ad904a6a57998a26ab94d422 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b3935702a3549d8d9a3fd3b515b42b6fc2b6ae90ad904a6a57998a26ab94d422->enter($__internal_b3935702a3549d8d9a3fd3b515b42b6fc2b6ae90ad904a6a57998a26ab94d422_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::edit_project.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -50,7 +50,6 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
     
     /* Set black background color, white text and some padding */
     footer {
-      position: fixed;
       background-color: #555;
       color: white;
       padding: 15px;
@@ -107,14 +106,14 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
     <div class=\"col-sm-8 text-left\"> 
         <h1>Create a new project:</h1>
         <form method=\"post\" class=\"form-horizontal\" action=\"/update/project/";
-        // line 85
+        // line 84
         echo twig_escape_filter($this->env, $this->getAttribute(($context["project"] ?? $this->getContext($context, "project")), "ID", array()), "html", null, true);
         echo "\">
             <div class=\"form-group\">
                 <label class=\"control-label col-sm-2\" for=\"name\">Name of the Project: </label>
                 <div class=\"col-sm-10\">
                     <input class=\"form-control\" type=\"text\" value=\"";
-        // line 89
+        // line 88
         echo twig_escape_filter($this->env, $this->getAttribute(($context["project"] ?? $this->getContext($context, "project")), "NAME", array()), "html", null, true);
         echo "\"
                         name=\"name\" id=\"name\"/>
@@ -124,27 +123,27 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
                 <label class=\"control-label col-sm-2\" for=\"importance\">Importance: </label>
                 <div class=\"col-sm-10\">
                     <select name=\"importance\" id=\"importance\" class=\"form-control\" value=\"";
-        // line 96
+        // line 95
         echo twig_escape_filter($this->env, $this->getAttribute(($context["project"] ?? $this->getContext($context, "project")), "IMPORTANCE", array()), "html", null, true);
         echo "\">
                         <option value=\"very-high\" ";
-        // line 97
+        // line 96
         echo twig_escape_filter($this->env, ($context["vhigh"] ?? $this->getContext($context, "vhigh")), "html", null, true);
         echo ">Very High</option>
                         <option value=\"high\" ";
-        // line 98
+        // line 97
         echo twig_escape_filter($this->env, ($context["high"] ?? $this->getContext($context, "high")), "html", null, true);
         echo ">High</option>
                         <option value=\"medium\" ";
-        // line 99
+        // line 98
         echo twig_escape_filter($this->env, ($context["medium"] ?? $this->getContext($context, "medium")), "html", null, true);
         echo ">Medium</option>
                         <option value=\"low\" ";
-        // line 100
+        // line 99
         echo twig_escape_filter($this->env, ($context["low"] ?? $this->getContext($context, "low")), "html", null, true);
         echo ">Low</option>
                         <option value=\"very-low\" ";
-        // line 101
+        // line 100
         echo twig_escape_filter($this->env, ($context["vlow"] ?? $this->getContext($context, "vlow")), "html", null, true);
         echo ">Very Low</option>
                         
@@ -155,7 +154,7 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
                 <label class=\"control-label col-sm-2\" for=\"deadline\">Deadline if existed: </label>
                 <div class=\"col-sm-10\">
                     <input class=\"form-control\" type=\"text\" value=\"";
-        // line 109
+        // line 108
         echo twig_escape_filter($this->env, ($context["DEADLINE"] ?? $this->getContext($context, "DEADLINE")), "html", null, true);
         echo "\"
                         name=\"deadline\" id=\"deadline\"/>
@@ -165,31 +164,31 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
                 <label class=\"control-label col-sm-2\" for=\"domain\">Choose a domain: </label>
                 <div class=\"col-sm-10\">
                     <select name=\"domain\" id=\"domain\" class=\"form-control\" selected=\"";
-        // line 116
+        // line 115
         echo twig_escape_filter($this->env, $this->getAttribute(($context["project"] ?? $this->getContext($context, "project")), "DOMAIN", array()), "html", null, true);
         echo "\">
                         <option value=\"fluid-mechanics\" ";
-        // line 117
+        // line 116
         echo twig_escape_filter($this->env, ($context["fm"] ?? $this->getContext($context, "fm")), "html", null, true);
         echo ">Fluid Mechanics</option>
                         <option value=\"geology\" ";
-        // line 118
+        // line 117
         echo twig_escape_filter($this->env, ($context["g"] ?? $this->getContext($context, "g")), "html", null, true);
         echo ">Geology</option>
                         <option value=\"environment\" ";
-        // line 119
+        // line 118
         echo twig_escape_filter($this->env, ($context["e"] ?? $this->getContext($context, "e")), "html", null, true);
         echo ">Environment</option>
                         <option value=\"mathematics\" ";
-        // line 120
+        // line 119
         echo twig_escape_filter($this->env, ($context["m"] ?? $this->getContext($context, "m")), "html", null, true);
         echo ">Mathematics</option>
                         <option value=\"physics\" ";
-        // line 121
+        // line 120
         echo twig_escape_filter($this->env, ($context["p"] ?? $this->getContext($context, "p")), "html", null, true);
         echo ">Physics</option>
                         <option value=\"chemistry\" ";
-        // line 122
+        // line 121
         echo twig_escape_filter($this->env, ($context["c"] ?? $this->getContext($context, "c")), "html", null, true);
         echo ">Chemistry</option>
                     </select>
@@ -199,7 +198,7 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
                 <label class=\"control-label col-sm-2\" for=\"comment\">Comment:</label>
                 <div class=\"col-sm-10\">
                     <textarea name=\"comment\" class=\"form-control\" rows=\"7\" id=\"comment\" >";
-        // line 129
+        // line 128
         echo twig_escape_filter($this->env, $this->getAttribute(($context["project"] ?? $this->getContext($context, "project")), "COMMENT", array()), "html", null, true);
         echo "</textarea>
                 </div>
@@ -233,10 +232,10 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
 </html>
 ";
         
-        $__internal_63bdd9166300cb85d3f24a2760d12b8bcb7d4d4483d6bff1c2428d42f8265a83->leave($__internal_63bdd9166300cb85d3f24a2760d12b8bcb7d4d4483d6bff1c2428d42f8265a83_prof);
+        $__internal_79e769087568086949c54443da6e7ba4a366b87f9fd0ace82e6a756af75ce9e5->leave($__internal_79e769087568086949c54443da6e7ba4a366b87f9fd0ace82e6a756af75ce9e5_prof);
 
         
-        $__internal_3cb4e26ebe7dd0b1abf646bcfbae4153d94cb7d07280a2a7bb5c801482b56a93->leave($__internal_3cb4e26ebe7dd0b1abf646bcfbae4153d94cb7d07280a2a7bb5c801482b56a93_prof);
+        $__internal_b3935702a3549d8d9a3fd3b515b42b6fc2b6ae90ad904a6a57998a26ab94d422->leave($__internal_b3935702a3549d8d9a3fd3b515b42b6fc2b6ae90ad904a6a57998a26ab94d422_prof);
 
     }
 
@@ -252,7 +251,7 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
 
     public function getDebugInfo()
     {
-        return array (  203 => 129,  193 => 122,  189 => 121,  185 => 120,  181 => 119,  177 => 118,  173 => 117,  169 => 116,  159 => 109,  148 => 101,  144 => 100,  140 => 99,  136 => 98,  132 => 97,  128 => 96,  118 => 89,  111 => 85,  25 => 1,);
+        return array (  202 => 128,  192 => 121,  188 => 120,  184 => 119,  180 => 118,  176 => 117,  172 => 116,  168 => 115,  158 => 108,  147 => 100,  143 => 99,  139 => 98,  135 => 97,  131 => 96,  127 => 95,  117 => 88,  110 => 84,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -293,7 +292,6 @@ class __TwigTemplate_b402a665304a60f38d524e14370387b39e64dbab3dd4a35a801f0124e47
     
     /* Set black background color, white text and some padding */
     footer {
-      position: fixed;
       background-color: #555;
       color: white;
       padding: 15px;

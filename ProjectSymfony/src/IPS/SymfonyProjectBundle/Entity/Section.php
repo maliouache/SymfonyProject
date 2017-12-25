@@ -52,7 +52,7 @@ class Section
     /**
      * @var int
      *
-     * @ORM\Column(name="STATUT", type="string", length=255)
+     * @ORM\Column(name="STATUT", type="integer", length=11)
      */
     private $sTATUT;
 
@@ -247,5 +247,9 @@ class Section
         $this->setCOMMENT($comment);
         $this->setSTATUT(0);
     }
+
+    // function update_statut(){
+
+    // }
 }
 

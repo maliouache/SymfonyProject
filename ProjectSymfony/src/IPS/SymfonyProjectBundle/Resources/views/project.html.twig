@@ -136,7 +136,18 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td width="100%">Statut: <b>{{section.STATUT}}</b></br>{{section.COMMENT}}</td>
+                                <td width="50%">Statut: <b>{{section.STATUT}}</b></br>
+                                  {{section.COMMENT}}</br>
+                                    <a href="/add/task/{{section.ID}}">Add a new task</a></br>
+                                    <a href="/show/section/{{section.ID}}">See the details of the section</a></br>
+                                    <a href="#">Here a new option to do in the section</a></br>
+                                    <a href="#">Here a new option to do in the section</a></br>
+                                    <a href="#">Here a new option to do in the section</a></br>
+                                    <a href="/section/references/{{section.ID}}">References/Bibliography</a>
+                                </td>
+                                <td>
+                                  
+                                </td>
                             </tr>
                         </tbody>
                     </table>

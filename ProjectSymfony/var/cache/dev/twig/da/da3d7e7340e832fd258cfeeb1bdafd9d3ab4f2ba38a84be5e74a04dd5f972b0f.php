@@ -15,11 +15,11 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_c4ec2fe3c01d91e678686a5a01d8d360b2f47624897bd3d7593a9074474ee708 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_c4ec2fe3c01d91e678686a5a01d8d360b2f47624897bd3d7593a9074474ee708->enter($__internal_c4ec2fe3c01d91e678686a5a01d8d360b2f47624897bd3d7593a9074474ee708_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::project.html.twig"));
+        $__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae->enter($__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::project.html.twig"));
 
-        $__internal_75777adb10d559aa2802045acf2bac9fa0c999cb3d0883eca4b0bd14798a5414 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_75777adb10d559aa2802045acf2bac9fa0c999cb3d0883eca4b0bd14798a5414->enter($__internal_75777adb10d559aa2802045acf2bac9fa0c999cb3d0883eca4b0bd14798a5414_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::project.html.twig"));
+        $__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948->enter($__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::project.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -233,12 +233,33 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
                     <table class=\"table\">
                         <tbody>
                             <tr>
-                                <td width=\"100%\">Statut: <b>";
+                                <td width=\"50%\">Statut: <b>";
             // line 139
             echo twig_escape_filter($this->env, $this->getAttribute($context["section"], "STATUT", array()), "html", null, true);
-            echo "</b></br>";
+            echo "</b></br>
+                                  ";
+            // line 140
             echo twig_escape_filter($this->env, $this->getAttribute($context["section"], "COMMENT", array()), "html", null, true);
-            echo "</td>
+            echo "</br>
+                                    <a href=\"/add/task/";
+            // line 141
+            echo twig_escape_filter($this->env, $this->getAttribute($context["section"], "ID", array()), "html", null, true);
+            echo "\">Add a new task</a></br>
+                                    <a href=\"/show/section/";
+            // line 142
+            echo twig_escape_filter($this->env, $this->getAttribute($context["section"], "ID", array()), "html", null, true);
+            echo "\">See the details of the section</a></br>
+                                    <a href=\"#\">Here a new option to do in the section</a></br>
+                                    <a href=\"#\">Here a new option to do in the section</a></br>
+                                    <a href=\"#\">Here a new option to do in the section</a></br>
+                                    <a href=\"/section/references/";
+            // line 146
+            echo twig_escape_filter($this->env, $this->getAttribute($context["section"], "ID", array()), "html", null, true);
+            echo "\">References/Bibliography</a>
+                                </td>
+                                <td>
+                                  
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -249,7 +270,7 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['section'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 146
+        // line 157
         echo "        <!-- </div> -->
         <!-- </ul> -->
 
@@ -274,10 +295,10 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
 </html>
 ";
         
-        $__internal_c4ec2fe3c01d91e678686a5a01d8d360b2f47624897bd3d7593a9074474ee708->leave($__internal_c4ec2fe3c01d91e678686a5a01d8d360b2f47624897bd3d7593a9074474ee708_prof);
+        $__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae->leave($__internal_361fcf9873f642b3492999c9289ceb57c37363bcebe67c007fd30aebd5a193ae_prof);
 
         
-        $__internal_75777adb10d559aa2802045acf2bac9fa0c999cb3d0883eca4b0bd14798a5414->leave($__internal_75777adb10d559aa2802045acf2bac9fa0c999cb3d0883eca4b0bd14798a5414_prof);
+        $__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948->leave($__internal_0ebc271db17d043e95dde7333574a11a7b3eb920b51e9e2e676f6689801b6948_prof);
 
     }
 
@@ -293,7 +314,7 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
 
     public function getDebugInfo()
     {
-        return array (  253 => 146,  238 => 139,  230 => 134,  222 => 129,  219 => 128,  212 => 124,  208 => 123,  204 => 122,  201 => 121,  198 => 120,  191 => 116,  187 => 115,  183 => 114,  180 => 113,  177 => 112,  170 => 108,  166 => 107,  162 => 106,  159 => 105,  156 => 104,  149 => 100,  145 => 99,  141 => 98,  138 => 97,  136 => 96,  131 => 94,  124 => 90,  121 => 89,  117 => 88,  111 => 85,  25 => 1,);
+        return array (  274 => 157,  257 => 146,  250 => 142,  246 => 141,  242 => 140,  238 => 139,  230 => 134,  222 => 129,  219 => 128,  212 => 124,  208 => 123,  204 => 122,  201 => 121,  198 => 120,  191 => 116,  187 => 115,  183 => 114,  180 => 113,  177 => 112,  170 => 108,  166 => 107,  162 => 106,  159 => 105,  156 => 104,  149 => 100,  145 => 99,  141 => 98,  138 => 97,  136 => 96,  131 => 94,  124 => 90,  121 => 89,  117 => 88,  111 => 85,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -444,7 +465,18 @@ class __TwigTemplate_3c5f81fad02f48ee856fd7810f00da4e4d6e421aed3ed4becc675debe4a
                     <table class=\"table\">
                         <tbody>
                             <tr>
-                                <td width=\"100%\">Statut: <b>{{section.STATUT}}</b></br>{{section.COMMENT}}</td>
+                                <td width=\"50%\">Statut: <b>{{section.STATUT}}</b></br>
+                                  {{section.COMMENT}}</br>
+                                    <a href=\"/add/task/{{section.ID}}\">Add a new task</a></br>
+                                    <a href=\"/show/section/{{section.ID}}\">See the details of the section</a></br>
+                                    <a href=\"#\">Here a new option to do in the section</a></br>
+                                    <a href=\"#\">Here a new option to do in the section</a></br>
+                                    <a href=\"#\">Here a new option to do in the section</a></br>
+                                    <a href=\"/section/references/{{section.ID}}\">References/Bibliography</a>
+                                </td>
+                                <td>
+                                  
+                                </td>
                             </tr>
                         </tbody>
                     </table>

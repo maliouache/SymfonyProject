@@ -15,11 +15,11 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601->enter($__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
+        $__internal_85f88e28b10a7e248e1d65a792e665196a32a154d5ed27412f3c6b181f26acb4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_85f88e28b10a7e248e1d65a792e665196a32a154d5ed27412f3c6b181f26acb4->enter($__internal_85f88e28b10a7e248e1d65a792e665196a32a154d5ed27412f3c6b181f26acb4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
 
-        $__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6->enter($__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
+        $__internal_5de15525ee88c5897e55d04c45704d8f23b5d215aed931b8e5aba3191ec86015 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5de15525ee88c5897e55d04c45704d8f23b5d215aed931b8e5aba3191ec86015->enter($__internal_5de15525ee88c5897e55d04c45704d8f23b5d215aed931b8e5aba3191ec86015_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::projects.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -253,11 +253,17 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
             // line 161
             echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "ID", array()), "html", null, true);
             echo "\">Add a new section</a></br>
-                                          <a href=\"#\">See the details of the project</a></br>
+                                          <a href=\"/show/project/";
+            // line 162
+            echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "ID", array()), "html", null, true);
+            echo "\">See the details of the project</a></br>
                                           <a href=\"#\">Here a new option to do in the project</a></br>
                                           <a href=\"#\">Here a new option to do in the project</a></br>
                                           <a href=\"#\">Here a new option to do in the project</a></br>
-                                          <a href=\"#\">Here a new option to do in the project</a>
+                                          <a href=\"/project/references/";
+            // line 166
+            echo twig_escape_filter($this->env, $this->getAttribute($context["project"], "ID", array()), "html", null, true);
+            echo "\">References/Bibliography</a>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -292,10 +298,10 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
 </html>";
         
-        $__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601->leave($__internal_8c3378ea5b29d4d59c7aa22782c10e5079edc07bad7a378eb0cca80d60675601_prof);
+        $__internal_85f88e28b10a7e248e1d65a792e665196a32a154d5ed27412f3c6b181f26acb4->leave($__internal_85f88e28b10a7e248e1d65a792e665196a32a154d5ed27412f3c6b181f26acb4_prof);
 
         
-        $__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6->leave($__internal_b04798b1852c512e3983ff05a186b58765ff33a0927f9a0b4a3e022c572d32d6_prof);
+        $__internal_5de15525ee88c5897e55d04c45704d8f23b5d215aed931b8e5aba3191ec86015->leave($__internal_5de15525ee88c5897e55d04c45704d8f23b5d215aed931b8e5aba3191ec86015_prof);
 
     }
 
@@ -311,7 +317,7 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
 
     public function getDebugInfo()
     {
-        return array (  274 => 175,  254 => 161,  248 => 158,  245 => 157,  238 => 154,  234 => 153,  230 => 152,  227 => 151,  224 => 150,  217 => 146,  213 => 145,  209 => 144,  206 => 143,  203 => 142,  196 => 138,  192 => 137,  188 => 136,  185 => 135,  182 => 134,  175 => 130,  171 => 129,  167 => 128,  164 => 127,  162 => 126,  150 => 119,  147 => 118,  143 => 117,  25 => 1,);
+        return array (  280 => 175,  265 => 166,  258 => 162,  254 => 161,  248 => 158,  245 => 157,  238 => 154,  234 => 153,  230 => 152,  227 => 151,  224 => 150,  217 => 146,  213 => 145,  209 => 144,  206 => 143,  203 => 142,  196 => 138,  192 => 137,  188 => 136,  185 => 135,  182 => 134,  175 => 130,  171 => 129,  167 => 128,  164 => 127,  162 => 126,  150 => 119,  147 => 118,  143 => 117,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -485,11 +491,11 @@ class __TwigTemplate_a775df4bdb582ef69a1d22486004383441d1cb0322b57931552bdacbc3c
                                         </td>
                                       <td width=\"30%\">
                                           <a href=\"/add/section/{{project.ID}}\">Add a new section</a></br>
-                                          <a href=\"#\">See the details of the project</a></br>
+                                          <a href=\"/show/project/{{project.ID}}\">See the details of the project</a></br>
                                           <a href=\"#\">Here a new option to do in the project</a></br>
                                           <a href=\"#\">Here a new option to do in the project</a></br>
                                           <a href=\"#\">Here a new option to do in the project</a></br>
-                                          <a href=\"#\">Here a new option to do in the project</a>
+                                          <a href=\"/project/references/{{project.ID}}\">References/Bibliography</a>
                                       </td>
                                     </tr>
                                   </tbody>

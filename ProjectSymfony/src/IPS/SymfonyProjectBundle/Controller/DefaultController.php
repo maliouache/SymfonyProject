@@ -5,6 +5,7 @@ namespace IPS\SymfonyProjectBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use IPS\SymfonyProjectBundle\Entity\Project;
 use IPS\SymfonyProjectBundle\Entity\Section;
+use IPS\SymfonyProjectBundle\Entity\Task;
 
 class DefaultController extends Controller
 {
@@ -166,5 +167,43 @@ class DefaultController extends Controller
             array('project'  => $project,
                   'sections' => $sections)
         ); 
+    }
+
+    public function addtaskAction($sect,$crea_msg=""){
+        $msg="";
+        if ($crea_msg=="OK"){
+            $msg='A new task has been added successfully!';
+        }
+        return $this->get('templating')->renderResponse(
+            'IPSSymfonyProjectBundle::new_task.html.twig',
+            array('sect'  => $sect,
+                  'msg' => $msg)
+        ); 
+    }
+
+    public function savetaskAction(){
+        $task=new Task();
+        $em=$this->getDoctrine()->getManager();
+        $section=$em->getRepository('IPSSymfonyProjectBundle:Section')->find($_POST['sect']);
+        $task->init($_POST["name"],$_POST["importance"],$_POST["incharge"],$_POST["comment"],$section);
+        $em->persist($task);
+        $em->flush();
+        $this->updatestatut($section);
+        return $this->addtaskAction($section->getId(),"OK");
+    }
+
+    public function updatestatut(Section $section){
+        $em=$this->getDoctrine()->getManager();
+        $tasks=$em->getRepository('IPSSymfonyProjectBundle:Task')->findBy(array('SECTION'=>$section));
+        $i=0;$cumul=0;
+        foreach ($tasks as $task){
+            $cumul=$cumul+$task->getSTATUT();
+            $i=$i+1;
+        }
+        if ($i==0){
+            $i=1;
+        }
+        $section->setSTATUT(floor($cumul/$i));
+        $em->flush();
     }
 }
