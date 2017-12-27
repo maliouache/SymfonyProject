@@ -58,9 +58,17 @@ create_new_reference:
     path: /add/reference/{task_id}
     defaults: { _controller: IPSSymfonyProjectBundle:Default:addreference }
 
+create_new_work:
+    path: /add/work/{task_id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:addwork }
+
 show_task:
     path: /show/task/{id}
     defaults: { _controller: IPSSymfonyProjectBundle:Default:showtask }
+
+show_work:
+    path: /show/work/{id}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:showwork }
 
 show_section:
     path: /show/section/{id}

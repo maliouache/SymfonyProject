@@ -55,7 +55,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="/">Logo</a>
+      <a class="navbar-brand" href="/">ResearchLab</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -144,7 +144,7 @@
                     <td width="45%"><b>Tasks:</b></td>
                     <td width="55%">
                         {% for task in tasks%}
-                        <a href="/show/task/{{task.ID}}" target=_blank>{{task.NAME}}</a></br>
+                        <a href="/show/task/{{task.ID}}">{{task.NAME}}</a></br>
                         {% endfor %}
                         <a href="/add/task/{{section.ID}}"><button class="btn btn-info">Add tasks</button></a>
                     </td>

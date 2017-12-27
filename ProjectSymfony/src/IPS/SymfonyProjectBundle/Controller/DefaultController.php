@@ -6,9 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use IPS\SymfonyProjectBundle\Entity\Project;
 use IPS\SymfonyProjectBundle\Entity\Section;
 use IPS\SymfonyProjectBundle\Entity\Reference;
+use IPS\SymfonyProjectBundle\Entity\Work;
 use IPS\SymfonyProjectBundle\Entity\Task;
 use Symfony\Component\HttpFoundation\Request;
 use IPS\SymfonyProjectBundle\Form\ReferenceType;
+use IPS\SymfonyProjectBundle\Form\WorkType;
+
 
 class DefaultController extends Controller
 {
@@ -245,10 +248,47 @@ class DefaultController extends Controller
         ); 
     }
 
+    public function addworkAction($task_id,Request $request){
+        $msg="";
+        $work=new Work();
+        $form_ref = $this->get('form.factory')->create(WorkType::class, $work);
+        if ($request->isMethod('POST') && $form_ref->handleRequest($request)->isValid()) {
+            // Ajoutez cette ligne :
+            // c'est elle qui déplace l'image là où on veut les stocker
+            $work->setTYPE("html");
+            $em = $this->getDoctrine()->getManager();
+            $task=$em->getRepository('IPSSymfonyProjectBundle:Task')->find($task_id);
+            // $task=$em->getRepository('IPSSymfonyProjectBundle:Project')->find($task->getSECTION()->get);
+            $work->upload($task->getSECTION()->getPROJECT()->getNAME(),$task->getSECTION()->getNAME(),$task->getNAME());
+            // print_r($reference);
+            // Le reste de la méthode reste inchangé
+            // print_r($task);
+            $work->setTASK($task);
+            $work->setSEEN(0);
+            if ($work->getCONTENT()!=null){
+                // $work->setCONTENT(htmlspecialchars($work->getCONTENT()));
+            }
+            
+            $work->setADDDATE(new \DateTime());
+            $em->persist($work);
+            $em->flush();
+            $msg='The new reference has been added successfully!';
+            // ...
+        }
+        return $this->get('templating')->renderResponse(
+            'IPSSymfonyProjectBundle::new_work.html.twig',
+            array('form_ref'  => $form_ref->createView(),
+                  'task_parent' => $task_id,
+                  'msg' => $msg)
+        ); 
+    }
+
     public function showtaskAction($id){
         $em=$this->getDoctrine()->getManager();
         $task=$em->getRepository('IPSSymfonyProjectBundle:Task')->find($id);
         $references=$em->getRepository('IPSSymfonyProjectBundle:Reference')->findBy(array('TASK'=>$task));
+        $works=$em->getRepository('IPSSymfonyProjectBundle:Work')->findBy(array('TASK'=>$task));
+
         $add="";$end="";
         if ($task->getADDDATE()!=null){
             $add=$task->getADDDATE()->format("m-d-Y");
@@ -260,6 +300,7 @@ class DefaultController extends Controller
             'IPSSymfonyProjectBundle::task.html.twig',
             array('task'  => $task,
                   'references' => $references,
+                  'works' => $works,
                   'section' => $task->getSECTION(),
                   'project' => $task->getSECTION()->getPROJECT(),
                   'ADDDATE'=>$add,
@@ -308,5 +349,15 @@ class DefaultController extends Controller
         $em->flush();
         $this->updatestatut($task->getSECTION());
         return $this->showtaskAction($id);
+    }
+
+    public function showworkAction($id){
+        $em=$this->getDoctrine()->getManager();
+        $work=$em->getRepository('IPSSymfonyProjectBundle:Work')->find($id);
+        // $work->setCONTENT(htmlspecialchars($work->getCONTENT()));
+        return $this->get('templating')->renderResponse(
+            'IPSSymfonyProjectBundle::work.html.twig',
+            array('work'  => $work)
+        ); 
     }
 }

@@ -161,6 +161,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_task')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::showtaskAction',));
             }
 
+            // show_work
+            if (0 === strpos($pathinfo, '/show/work') && preg_match('#^/show/work/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_work')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::showworkAction',));
+            }
+
             // show_section
             if (0 === strpos($pathinfo, '/show/section') && preg_match('#^/show/section/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_section')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::showsectionAction',));
@@ -215,6 +220,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // create_new_reference
             if (0 === strpos($pathinfo, '/add/reference') && preg_match('#^/add/reference/(?P<task_id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'create_new_reference')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::addreferenceAction',));
+            }
+
+            // create_new_work
+            if (0 === strpos($pathinfo, '/add/work') && preg_match('#^/add/work/(?P<task_id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'create_new_work')), array (  '_controller' => 'IPS\\SymfonyProjectBundle\\Controller\\DefaultController::addworkAction',));
             }
 
         }

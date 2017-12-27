@@ -15,11 +15,11 @@ class __TwigTemplate_abe9ac2aeb921ee6f7342232966d8fe5c863d283b1433611da032f0e133
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_94dd03a96b9b6149843f0b42e4290ea0e102dd5f31d25fa9ead79685ea5c6e1f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_94dd03a96b9b6149843f0b42e4290ea0e102dd5f31d25fa9ead79685ea5c6e1f->enter($__internal_94dd03a96b9b6149843f0b42e4290ea0e102dd5f31d25fa9ead79685ea5c6e1f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::task.html.twig"));
+        $__internal_131d680bf914c4077ee1667717ae993ad9795fa2a365819f2f1af26c1ab04df3 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_131d680bf914c4077ee1667717ae993ad9795fa2a365819f2f1af26c1ab04df3->enter($__internal_131d680bf914c4077ee1667717ae993ad9795fa2a365819f2f1af26c1ab04df3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::task.html.twig"));
 
-        $__internal_e897480db144b2483c8100564722301defa596bd26e4c0aafccb4ca10158a2b1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e897480db144b2483c8100564722301defa596bd26e4c0aafccb4ca10158a2b1->enter($__internal_e897480db144b2483c8100564722301defa596bd26e4c0aafccb4ca10158a2b1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::task.html.twig"));
+        $__internal_681f5923bdd4b5a14bf7c9d2e247a0ef8202aac74547a249b7bcc0ba8b9b6df6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_681f5923bdd4b5a14bf7c9d2e247a0ef8202aac74547a249b7bcc0ba8b9b6df6->enter($__internal_681f5923bdd4b5a14bf7c9d2e247a0ef8202aac74547a249b7bcc0ba8b9b6df6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "IPSSymfonyProjectBundle::task.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -79,7 +79,7 @@ class __TwigTemplate_abe9ac2aeb921ee6f7342232966d8fe5c863d283b1433611da032f0e133
         <span class=\"icon-bar\"></span>
         <span class=\"icon-bar\"></span>                        
       </button>
-      <a class=\"navbar-brand\" href=\"/\">Logo</a>
+      <a class=\"navbar-brand\" href=\"/\">ResearchLab</a>
     </div>
     <div class=\"collapse navbar-collapse\" id=\"myNavbar\">
       <ul class=\"nav navbar-nav\">
@@ -203,6 +203,43 @@ class __TwigTemplate_abe9ac2aeb921ee6f7342232966d8fe5c863d283b1433611da032f0e133
         echo "\"><button class=\"btn btn-info\">Add references</button></a>
                     </td>
                 </tr>
+                <tr>
+                    <td width=\"45%\"><b>Works:</b></td>
+                    <td width=\"55%\">
+                        ";
+        // line 130
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["works"] ?? $this->getContext($context, "works")));
+        foreach ($context['_seq'] as $context["_key"] => $context["work"]) {
+            // line 131
+            echo "                        ";
+            if (($this->getAttribute($context["work"], "TYPE", array()) == "file")) {
+                // line 132
+                echo "                        <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl($this->getAttribute($context["work"], "URL", array())), "html", null, true);
+                echo "\" target=_blank>";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["work"], "URL", array()), "html", null, true);
+                echo "</a></br>
+                        ";
+            } else {
+                // line 134
+                echo "                        <a href=\"/show/work/";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["work"], "ID", array()), "html", null, true);
+                echo "\" target=_blank>See Work</a></br>
+                        ";
+            }
+            // line 136
+            echo "                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['work'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 137
+        echo "                        <a href=\"/add/work/";
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["task"] ?? $this->getContext($context, "task")), "ID", array()), "html", null, true);
+        echo "\"><button class=\"btn btn-info\">Submit works</button></a>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <!-- here ends the main content -->
@@ -226,10 +263,10 @@ class __TwigTemplate_abe9ac2aeb921ee6f7342232966d8fe5c863d283b1433611da032f0e133
 </html>
 ";
         
-        $__internal_94dd03a96b9b6149843f0b42e4290ea0e102dd5f31d25fa9ead79685ea5c6e1f->leave($__internal_94dd03a96b9b6149843f0b42e4290ea0e102dd5f31d25fa9ead79685ea5c6e1f_prof);
+        $__internal_131d680bf914c4077ee1667717ae993ad9795fa2a365819f2f1af26c1ab04df3->leave($__internal_131d680bf914c4077ee1667717ae993ad9795fa2a365819f2f1af26c1ab04df3_prof);
 
         
-        $__internal_e897480db144b2483c8100564722301defa596bd26e4c0aafccb4ca10158a2b1->leave($__internal_e897480db144b2483c8100564722301defa596bd26e4c0aafccb4ca10158a2b1_prof);
+        $__internal_681f5923bdd4b5a14bf7c9d2e247a0ef8202aac74547a249b7bcc0ba8b9b6df6->leave($__internal_681f5923bdd4b5a14bf7c9d2e247a0ef8202aac74547a249b7bcc0ba8b9b6df6_prof);
 
     }
 
@@ -245,7 +282,7 @@ class __TwigTemplate_abe9ac2aeb921ee6f7342232966d8fe5c863d283b1433611da032f0e133
 
     public function getDebugInfo()
     {
-        return array (  201 => 124,  190 => 122,  186 => 121,  178 => 116,  171 => 112,  164 => 108,  157 => 104,  150 => 100,  143 => 96,  134 => 92,  125 => 88,  119 => 84,  109 => 83,  25 => 1,);
+        return array (  238 => 137,  232 => 136,  226 => 134,  218 => 132,  215 => 131,  211 => 130,  201 => 124,  190 => 122,  186 => 121,  178 => 116,  171 => 112,  164 => 108,  157 => 104,  150 => 100,  143 => 96,  134 => 92,  125 => 88,  119 => 84,  109 => 83,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -315,7 +352,7 @@ class __TwigTemplate_abe9ac2aeb921ee6f7342232966d8fe5c863d283b1433611da032f0e133
         <span class=\"icon-bar\"></span>
         <span class=\"icon-bar\"></span>                        
       </button>
-      <a class=\"navbar-brand\" href=\"/\">Logo</a>
+      <a class=\"navbar-brand\" href=\"/\">ResearchLab</a>
     </div>
     <div class=\"collapse navbar-collapse\" id=\"myNavbar\">
       <ul class=\"nav navbar-nav\">
@@ -382,6 +419,19 @@ class __TwigTemplate_abe9ac2aeb921ee6f7342232966d8fe5c863d283b1433611da032f0e133
                         <a href=\"{{asset(reference.URL)}}\" target=_blank>{{reference.URL}}</a></br>
                         {% endfor %}
                         <a href=\"/add/reference/{{task.ID}}\"><button class=\"btn btn-info\">Add references</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=\"45%\"><b>Works:</b></td>
+                    <td width=\"55%\">
+                        {% for work in works %}
+                        {% if work.TYPE=='file' %}
+                        <a href=\"{{asset(work.URL)}}\" target=_blank>{{work.URL}}</a></br>
+                        {% else %}
+                        <a href=\"/show/work/{{work.ID}}\" target=_blank>See Work</a></br>
+                        {% endif %}
+                        {% endfor %}
+                        <a href=\"/add/work/{{task.ID}}\"><button class=\"btn btn-info\">Submit works</button></a>
                     </td>
                 </tr>
             </tbody>

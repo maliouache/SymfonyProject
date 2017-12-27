@@ -55,7 +55,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="/">Logo</a>
+      <a class="navbar-brand" href="/">ResearchLab</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -122,6 +122,19 @@
                         <a href="{{asset(reference.URL)}}" target=_blank>{{reference.URL}}</a></br>
                         {% endfor %}
                         <a href="/add/reference/{{task.ID}}"><button class="btn btn-info">Add references</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45%"><b>Works:</b></td>
+                    <td width="55%">
+                        {% for work in works %}
+                        {% if work.TYPE=='file' %}
+                        <a href="{{asset(work.URL)}}" target=_blank>{{work.URL}}</a></br>
+                        {% else %}
+                        <a href="/show/work/{{work.ID}}" target=_blank>See Work</a></br>
+                        {% endif %}
+                        {% endfor %}
+                        <a href="/add/work/{{task.ID}}"><button class="btn btn-info">Submit works</button></a>
                     </td>
                 </tr>
             </tbody>
