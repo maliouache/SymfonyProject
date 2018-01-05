@@ -188,7 +188,7 @@ class Project
     }
 
     public function __construct(){
-
+        
     }
 
     function init($name,$importance,$deadline,$domain,$comment){
