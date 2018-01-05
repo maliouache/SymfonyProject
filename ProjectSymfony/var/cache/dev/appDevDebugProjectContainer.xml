@@ -73,7 +73,7 @@
       </parameter>
       <parameter key="ResearchLabUserBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/src/ResearchLabUserBundle</parameter>
+        <parameter key="path">/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/src/ResearchLabUserBundle</parameter>
         <parameter key="namespace">ResearchLabUserBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
@@ -417,6 +417,30 @@
     </parameter>
     <parameter key="console.command.ids" type="collection">
       <parameter key="console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand">console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinecachebundle_command_containscommand">doctrine_cache.contains_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinecachebundle_command_deletecommand">doctrine_cache.delete_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinecachebundle_command_flushcommand">doctrine_cache.flush_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinecachebundle_command_statscommand">doctrine_cache.stats_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_createdatabasedoctrinecommand">doctrine.database_create_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_dropdatabasedoctrinecommand">doctrine.database_drop_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_generateentitiesdoctrinecommand">doctrine.generate_entities_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_importmappingdoctrinecommand">doctrine.mapping_import_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_clearmetadatacachedoctrinecommand">doctrine.cache_clear_metadata_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_clearquerycachedoctrinecommand">doctrine.cache_clear_query_cache_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_clearresultcachedoctrinecommand">doctrine.cache_clear_result_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_collectionregiondoctrinecommand">doctrine.cache_collection_region_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_convertmappingdoctrinecommand">doctrine.mapping_convert_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_createschemadoctrinecommand">doctrine.schema_create_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_dropschemadoctrinecommand">doctrine.schema_drop_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_ensureproductionsettingsdoctrinecommand">doctrine.ensure_production_settings_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_entityregioncachedoctrinecommand">doctrine.clear_entity_region_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_importdoctrinecommand">doctrine.database_import_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_infodoctrinecommand">doctrine.mapping_info_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_queryregioncachedoctrinecommand">doctrine.clear_query_region_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_rundqldoctrinecommand">doctrine.query_dql_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_runsqldoctrinecommand">doctrine.query_sql_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_updateschemadoctrinecommand">doctrine.schema_update_command</parameter>
+      <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_validateschemacommand">doctrine.schema_validate_command</parameter>
       <parameter key="console.command.sensiolabs_security_command_securitycheckercommand">sensio_distribution.security_checker.command</parameter>
       <parameter key="console.command.symfony_bundle_webserverbundle_command_serverruncommand">console.command.symfony_bundle_webserverbundle_command_serverruncommand</parameter>
       <parameter key="console.command.symfony_bundle_webserverbundle_command_serverstartcommand">console.command.symfony_bundle_webserverbundle_command_serverstartcommand</parameter>
@@ -428,7 +452,6 @@
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" synthetic="true"/>
     <service id="AppBundle\AppBundle" class="AppBundle\AppBundle" public="false" autowire="true" autoconfigure="true"/>
     <service id="AppBundle\Controller\DefaultController" class="AppBundle\Controller\DefaultController" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
       <tag name="controller.service_arguments"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
@@ -557,33 +580,10 @@
         <argument>/_fragment</argument>
       </call>
     </service>
-    <service id="fragment.renderer.esi" class="Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer">
-      <tag name="kernel.fragment_renderer" alias="esi"/>
-      <argument>null</argument>
-      <argument type="service" id="fragment.renderer.inline"/>
-      <argument type="service" id="uri_signer"/>
-      <call method="setFragmentPath">
-        <argument>/_fragment</argument>
-      </call>
-    </service>
-    <service id="fragment.renderer.ssi" class="Symfony\Component\HttpKernel\Fragment\SsiFragmentRenderer">
-      <tag name="kernel.fragment_renderer" alias="ssi"/>
-      <argument>null</argument>
-      <argument type="service" id="fragment.renderer.inline"/>
-      <argument type="service" id="uri_signer"/>
-      <call method="setFragmentPath">
-        <argument>/_fragment</argument>
-      </call>
-    </service>
     <service id="console.error_listener" class="Symfony\Component\Console\EventListener\ErrorListener" public="false">
       <tag name="kernel.event_subscriber"/>
       <tag name="monolog.logger" channel="console"/>
       <argument type="service" id="monolog.logger.console" on-invalid="null"/>
-    </service>
-    <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor">
-      <argument>false</argument>
-      <argument>false</argument>
-      <argument type="service" id="cache.property_access" on-invalid="ignore"/>
     </service>
     <service id="cache.app" class="Symfony\Component\Cache\Adapter\TraceableAdapter">
       <tag name="cache.pool"/>
@@ -615,13 +615,8 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-<<<<<<< HEAD
-      <argument>-noNND3daAcMpsFC5L5E5i</argument>
+      <argument>q1MVkj-35x3lIyW5uvyUl-</argument>
       <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
-=======
-      <argument>NWT73zm+pSmeneVNv0kfO8</argument>
-      <argument>/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -630,11 +625,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-<<<<<<< HEAD
-      <argument>-noNND3daAcMpsFC5L5E5i</argument>
-=======
-      <argument>NWT73zm+pSmeneVNv0kfO8</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
+      <argument>q1MVkj-35x3lIyW5uvyUl-</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -942,6 +933,7 @@
     <service id="security.csrf.token_manager" class="Symfony\Component\Security\Csrf\CsrfTokenManager">
       <argument type="service" id="security.csrf.token_generator"/>
       <argument type="service" id="security.csrf.token_storage"/>
+      <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="assets.packages" class="Symfony\Component\Asset\Packages">
       <argument type="service" id="assets._default_package"/>
@@ -1486,7 +1478,7 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
-        <argument>console.exception</argument>
+        <argument>console.error</argument>
         <argument type="collection">
           <argument type="service" id="swiftmailer.email_sender.listener"/>
           <argument>onException</argument>
@@ -1605,13 +1597,13 @@
         <argument type="service" id="routing.loader.service"/>
       </call>
       <call method="addLoader">
+        <argument type="service" id="sensio_framework_extra.routing.loader.annot_class"/>
+      </call>
+      <call method="addLoader">
         <argument type="service" id="sensio_framework_extra.routing.loader.annot_dir"/>
       </call>
       <call method="addLoader">
         <argument type="service" id="sensio_framework_extra.routing.loader.annot_file"/>
-      </call>
-      <call method="addLoader">
-        <argument type="service" id="sensio_framework_extra.routing.loader.annot_class"/>
       </call>
     </service>
     <service id="routing.loader.xml" class="Symfony\Component\Routing\Loader\XmlFileLoader" public="false">
@@ -1643,7 +1635,6 @@
       <argument type="service" id="routing.resolver"/>
     </service>
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
-      <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
       <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/app/config/routing_dev.yml</argument>
       <argument type="collection">
@@ -1660,7 +1651,6 @@
         <argument key="strict_requirements">true</argument>
       </argument>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
-      <argument type="service" id="monolog.logger.router" on-invalid="ignore"/>
       <call method="setConfigCacheFactory">
         <argument type="service" id="config_cache_factory"/>
       </call>
@@ -1685,21 +1675,21 @@
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
     </service>
-    <service id="3_85b846276b3116bbd07ef37069a938eed760b6699e43572a8c4f36ecebf7d6a1" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+    <service id="2_85b846276b3116bbd07ef37069a938eed760b6699e43572a8c4f36ecebf7d6a1" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
       <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/var/cache/dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
-    <service id="2_85b846276b3116bbd07ef37069a938eed760b6699e43572a8c4f36ecebf7d6a1" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
-    <service id="1_85b846276b3116bbd07ef37069a938eed760b6699e43572a8c4f36ecebf7d6a1" class="Doctrine\Common\Annotations\AnnotationRegistry" public="false">
-      <call method="registerLoader">
-        <argument>class_exists</argument>
-      </call>
-    </service>
+    <service id="1_85b846276b3116bbd07ef37069a938eed760b6699e43572a8c4f36ecebf7d6a1" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
-        <argument type="service" id="1_85b846276b3116bbd07ef37069a938eed760b6699e43572a8c4f36ecebf7d6a1"/>
+        <argument type="service" id="annotations.dummy_registry"/>
+      </call>
+    </service>
+    <service id="annotations.dummy_registry" class="Doctrine\Common\Annotations\AnnotationRegistry" public="false">
+      <call method="registerLoader">
+        <argument>class_exists</argument>
       </call>
     </service>
     <service id="annotations.filesystem_cache" class="Doctrine\Common\Cache\FilesystemCache" public="false">
@@ -1712,7 +1702,12 @@
       <argument type="service" id="cache.annotations"/>
     </service>
     <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider" public="false">
-      <argument type="service" id="3_85b846276b3116bbd07ef37069a938eed760b6699e43572a8c4f36ecebf7d6a1"/>
+      <argument type="service" id="2_85b846276b3116bbd07ef37069a938eed760b6699e43572a8c4f36ecebf7d6a1"/>
+    </service>
+    <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor">
+      <argument>false</argument>
+      <argument>false</argument>
+      <argument type="service" id="cache.property_access" on-invalid="ignore"/>
     </service>
     <service id="security.authorization_checker" class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker">
       <argument type="service" id="security.token_storage"/>
@@ -2281,20 +2276,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-<<<<<<< HEAD
-      <argument>5a4bb5ae24bd94.62879566</argument>
-=======
-      <argument>5a4e382996e523.09394217</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
+      <argument>5a4f860b8638c0.50179499</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-<<<<<<< HEAD
-      <argument>5a4bb5ae24bd94.62879566</argument>
-=======
-      <argument>5a4e382996e523.09394217</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
+      <argument>5a4f860b8638c0.50179499</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2439,12 +2426,16 @@
       <tag name="container.service_subscriber.locator" id="service_locator.26ac001b3ede28481ac0de703666b4d7"/>
       <argument type="service" id="service_locator.26ac001b3ede28481ac0de703666b4d7"/>
       <argument type="service" id="templating.finder" on-invalid="ignore"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form">null</argument>
+      </argument>
     </service>
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
       <argument type="service" id="kernel"/>
       <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/app</argument>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form">null</argument>
+      </argument>
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
@@ -2479,15 +2470,11 @@
         <argument>IPSSymfonyProject</argument>
       </call>
       <call method="addPath">
-<<<<<<< HEAD
-        <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
-=======
-        <argument>/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/src/ResearchLabUserBundle/Resources/views</argument>
+        <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/src/ResearchLabUserBundle/Resources/views</argument>
         <argument>ResearchLabUser</argument>
       </call>
       <call method="addPath">
-        <argument>/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
+        <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
@@ -2634,15 +2621,11 @@
         <argument>IPSSymfonyProject</argument>
       </call>
       <call method="addPath">
-<<<<<<< HEAD
-        <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
-=======
-        <argument>/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/src/ResearchLabUserBundle/Resources/views</argument>
+        <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/src/ResearchLabUserBundle/Resources/views</argument>
         <argument>ResearchLabUser</argument>
       </call>
       <call method="addPath">
-        <argument>/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
+        <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
@@ -2848,6 +2831,18 @@
     <service id="doctrine_cache.abstract.wincache" class="Doctrine\Common\Cache\WinCacheCache" abstract="true"/>
     <service id="doctrine_cache.abstract.xcache" class="Doctrine\Common\Cache\XcacheCache" abstract="true"/>
     <service id="doctrine_cache.abstract.zenddata" class="Doctrine\Common\Cache\ZendDataCache" abstract="true"/>
+    <service id="doctrine_cache.contains_command" class="Doctrine\Bundle\DoctrineCacheBundle\Command\ContainsCommand">
+      <tag name="console.command"/>
+    </service>
+    <service id="doctrine_cache.delete_command" class="Doctrine\Bundle\DoctrineCacheBundle\Command\DeleteCommand">
+      <tag name="console.command"/>
+    </service>
+    <service id="doctrine_cache.flush_command" class="Doctrine\Bundle\DoctrineCacheBundle\Command\FlushCommand">
+      <tag name="console.command"/>
+    </service>
+    <service id="doctrine_cache.stats_command" class="Doctrine\Bundle\DoctrineCacheBundle\Command\StatsCommand">
+      <tag name="console.command"/>
+    </service>
     <service id="doctrine.dbal.logger.chain" class="Doctrine\DBAL\Logging\LoggerChain" public="false" abstract="true">
       <call method="addLogger">
         <argument type="service" id="doctrine.dbal.logger"/>
@@ -2890,6 +2885,18 @@
     </service>
     <service id="doctrine.twig.doctrine_extension" class="Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension" public="false">
       <tag name="twig.extension"/>
+    </service>
+    <service id="doctrine.database_create_command" class="Doctrine\Bundle\DoctrineBundle\Command\CreateDatabaseDoctrineCommand">
+      <tag name="console.command" command="doctrine:database:create"/>
+    </service>
+    <service id="doctrine.database_drop_command" class="Doctrine\Bundle\DoctrineBundle\Command\DropDatabaseDoctrineCommand">
+      <tag name="console.command" command="doctrine:database:drop"/>
+    </service>
+    <service id="doctrine.generate_entities_command" class="Doctrine\Bundle\DoctrineBundle\Command\GenerateEntitiesDoctrineCommand">
+      <tag name="console.command" command="doctrine:generate:entities"/>
+    </service>
+    <service id="doctrine.mapping_import_command" class="Doctrine\Bundle\DoctrineBundle\Command\ImportMappingDoctrineCommand">
+      <tag name="console.command" command="doctrine:mapping:import"/>
     </service>
     <service id="doctrine.dbal.default_connection.configuration" class="Doctrine\DBAL\Configuration" public="false">
       <call method="setSQLLogger">
@@ -2947,6 +2954,9 @@
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true">
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
+    <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
+      <argument type="service" id="service_locator.6f24348b77840ec12a20c22a3f985cf7"/>
+    </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
       <argument type="collection"/>
@@ -2967,6 +2977,54 @@
     <service id="doctrine.orm.naming_strategy.underscore" class="Doctrine\ORM\Mapping\UnderscoreNamingStrategy" public="false"/>
     <service id="doctrine.orm.quote_strategy.default" class="Doctrine\ORM\Mapping\DefaultQuoteStrategy" public="false"/>
     <service id="doctrine.orm.quote_strategy.ansi" class="Doctrine\ORM\Mapping\AnsiQuoteStrategy" public="false"/>
+    <service id="doctrine.cache_clear_metadata_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearMetadataCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-metadata"/>
+    </service>
+    <service id="doctrine.cache_clear_query_cache_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearQueryCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-query"/>
+    </service>
+    <service id="doctrine.cache_clear_result_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearResultCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-result"/>
+    </service>
+    <service id="doctrine.cache_collection_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\CollectionRegionDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-collection-region"/>
+    </service>
+    <service id="doctrine.mapping_convert_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ConvertMappingDoctrineCommand">
+      <tag name="console.command" command="doctrine:mapping:convert"/>
+    </service>
+    <service id="doctrine.schema_create_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\CreateSchemaDoctrineCommand">
+      <tag name="console.command" command="doctrine:schema:create"/>
+    </service>
+    <service id="doctrine.schema_drop_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\DropSchemaDoctrineCommand">
+      <tag name="console.command" command="doctrine:schema:drop"/>
+    </service>
+    <service id="doctrine.ensure_production_settings_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\EnsureProductionSettingsDoctrineCommand">
+      <tag name="console.command" command="doctrine:ensure-production-settings"/>
+    </service>
+    <service id="doctrine.clear_entity_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\EntityRegionCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-entity-region"/>
+    </service>
+    <service id="doctrine.database_import_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ImportDoctrineCommand">
+      <tag name="console.command" command="doctrine:database:import"/>
+    </service>
+    <service id="doctrine.mapping_info_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\InfoDoctrineCommand">
+      <tag name="console.command" command="doctrine:mapping:info"/>
+    </service>
+    <service id="doctrine.clear_query_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\QueryRegionCacheDoctrineCommand">
+      <tag name="console.command" command="doctrine:cache:clear-query-region"/>
+    </service>
+    <service id="doctrine.query_dql_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\RunDqlDoctrineCommand">
+      <tag name="console.command" command="doctrine:query:dql"/>
+    </service>
+    <service id="doctrine.query_sql_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\RunSqlDoctrineCommand">
+      <tag name="console.command" command="doctrine:query:sql"/>
+    </service>
+    <service id="doctrine.schema_update_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\UpdateSchemaDoctrineCommand">
+      <tag name="console.command" command="doctrine:schema:update"/>
+    </service>
+    <service id="doctrine.schema_validate_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ValidateSchemaCommand">
+      <tag name="console.command" command="doctrine:schema:validate"/>
+    </service>
     <service id="doctrine.orm.default_configuration" class="Doctrine\ORM\Configuration" public="false">
       <call method="setEntityNamespaces">
         <argument type="collection">
@@ -3009,6 +3067,9 @@
       <call method="setEntityListenerResolver">
         <argument type="service" id="doctrine.orm.default_entity_listener_resolver"/>
       </call>
+      <call method="setRepositoryFactory">
+        <argument type="service" id="doctrine.orm.container_repository_factory"/>
+      </call>
     </service>
     <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
       <argument type="service" id="annotations.cached_reader"/>
@@ -3024,17 +3085,17 @@
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_0ccca09468f4baf08dfd16732276f88270d8eeb553e162b886425c728c077e81</argument>
+        <argument>sf_orm_default_e20feefa947582eded796b30792ce000389f5410f168be2e3dc9465ec64532fd</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_0ccca09468f4baf08dfd16732276f88270d8eeb553e162b886425c728c077e81</argument>
+        <argument>sf_orm_default_e20feefa947582eded796b30792ce000389f5410f168be2e3dc9465ec64532fd</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_0ccca09468f4baf08dfd16732276f88270d8eeb553e162b886425c728c077e81</argument>
+        <argument>sf_orm_default_e20feefa947582eded796b30792ce000389f5410f168be2e3dc9465ec64532fd</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver">
@@ -3068,6 +3129,10 @@
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="annotations.cached_reader"/>
     </service>
+    <service id="sensio_framework_extra.routing.loader.annot_class" class="Sensio\Bundle\FrameworkExtraBundle\Routing\AnnotatedRouteControllerLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="annotations.cached_reader"/>
+    </service>
     <service id="sensio_framework_extra.routing.loader.annot_dir" class="Symfony\Component\Routing\Loader\AnnotationDirectoryLoader" public="false">
       <tag name="routing.loader"/>
       <argument type="service" id="file_locator"/>
@@ -3077,10 +3142,6 @@
       <tag name="routing.loader"/>
       <argument type="service" id="file_locator"/>
       <argument type="service" id="sensio_framework_extra.routing.loader.annot_class"/>
-    </service>
-    <service id="sensio_framework_extra.routing.loader.annot_class" class="Sensio\Bundle\FrameworkExtraBundle\Routing\AnnotatedRouteControllerLoader" public="false">
-      <tag name="routing.loader"/>
-      <argument type="service" id="annotations.cached_reader"/>
     </service>
     <service id="sensio_framework_extra.converter.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener">
       <tag name="kernel.event_subscriber"/>
@@ -3284,12 +3345,12 @@
     </service>
     <service id="web_server.command.server_run" class="Symfony\Bundle\WebServerBundle\Command\ServerRunCommand" public="false">
       <tag name="console.command"/>
-      <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/web</argument>
+      <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/public</argument>
       <argument>dev</argument>
     </service>
     <service id="web_server.command.server_start" class="Symfony\Bundle\WebServerBundle\Command\ServerStartCommand" public="false">
       <tag name="console.command"/>
-      <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/web</argument>
+      <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/public</argument>
       <argument>dev</argument>
     </service>
     <service id="web_server.command.server_stop" class="Symfony\Bundle\WebServerBundle\Command\ServerStopCommand" public="false">
@@ -3412,21 +3473,6 @@
         <argument type="service" id="monolog.handler.server_log"/>
       </call>
     </service>
-    <service id="monolog.logger.router" class="Symfony\Bridge\Monolog\Logger">
-      <argument>router</argument>
-      <call method="pushProcessor">
-        <argument type="service" id="debug.log_processor"/>
-      </call>
-      <call method="pushHandler">
-        <argument type="service" id="monolog.handler.server_log"/>
-      </call>
-      <call method="pushHandler">
-        <argument type="service" id="monolog.handler.console"/>
-      </call>
-      <call method="pushHandler">
-        <argument type="service" id="monolog.handler.main"/>
-      </call>
-    </service>
     <service id="monolog.logger.security" class="Symfony\Bridge\Monolog\Logger">
       <argument>security</argument>
       <call method="pushProcessor">
@@ -3455,6 +3501,10 @@
       </call>
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
+    <service id="service_locator.6f24348b77840ec12a20c22a3f985cf7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
     <service id="debug.event_dispatcher.inner" class="Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher" public="false">
       <argument type="service" id="service_container"/>
     </service>
@@ -3520,52 +3570,32 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>hZDmkNMVcf</argument>
       <argument>0</argument>
-<<<<<<< HEAD
-      <argument>-noNND3daAcMpsFC5L5E5i</argument>
+      <argument>q1MVkj-35x3lIyW5uvyUl-</argument>
       <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
-=======
-      <argument>NWT73zm+pSmeneVNv0kfO8</argument>
-      <argument>/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>IzU5WuhmR8</argument>
       <argument>0</argument>
-<<<<<<< HEAD
-      <argument>-noNND3daAcMpsFC5L5E5i</argument>
+      <argument>q1MVkj-35x3lIyW5uvyUl-</argument>
       <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
-=======
-      <argument>NWT73zm+pSmeneVNv0kfO8</argument>
-      <argument>/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>4HkjxSrPHT</argument>
       <argument>0</argument>
-<<<<<<< HEAD
-      <argument>-noNND3daAcMpsFC5L5E5i</argument>
+      <argument>q1MVkj-35x3lIyW5uvyUl-</argument>
       <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
-=======
-      <argument>NWT73zm+pSmeneVNv0kfO8</argument>
-      <argument>/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>54N-AiwXYW</argument>
       <argument>0</argument>
-<<<<<<< HEAD
-      <argument>-noNND3daAcMpsFC5L5E5i</argument>
+      <argument>q1MVkj-35x3lIyW5uvyUl-</argument>
       <argument>/home/mbensadoune/Desktop/master2IPS/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
-=======
-      <argument>NWT73zm+pSmeneVNv0kfO8</argument>
-      <argument>/home/maliouache/1/ProjectSymphony/SymfonyProject/ProjectSymfony/var/cache/dev/pools</argument>
->>>>>>> 33dec49b03b687413a418ced686c1c0ab7a11e0a
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -3584,7 +3614,6 @@
     <service id="Symfony\Component\HttpKernel\KernelInterface" alias="kernel" public="false"/>
     <service id="Symfony\Component\Filesystem\Filesystem" alias="filesystem" public="false"/>
     <service id="Symfony\Component\HttpKernel\Config\FileLocator" alias="file_locator" public="false"/>
-    <service id="Symfony\Component\PropertyAccess\PropertyAccessorInterface" alias="property_accessor" public="false"/>
     <service id="cache.app_clearer" alias="cache.default_clearer"/>
     <service id="Psr\Cache\CacheItemPoolInterface" alias="cache.app" public="false"/>
     <service id="Symfony\Component\Translation\TranslatorInterface" alias="translator" public="false"/>
@@ -3618,12 +3647,13 @@
     <service id="Symfony\Component\Routing\RequestContext" alias="router.request_context" public="false"/>
     <service id="annotation_reader" alias="annotations.cached_reader"/>
     <service id="Doctrine\Common\Annotations\Reader" alias="annotations.cached_reader" public="false"/>
-    <service id="Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface" alias="security.authorization_checker"/>
+    <service id="Symfony\Component\PropertyAccess\PropertyAccessorInterface" alias="property_accessor" public="false"/>
+    <service id="Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface" alias="security.authorization_checker" public="false"/>
     <service id="Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface" alias="security.token_storage" public="false"/>
     <service id="security.encoder_factory" alias="security.encoder_factory.generic"/>
     <service id="Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface" alias="security.encoder_factory.generic" public="false"/>
     <service id="security.password_encoder" alias="security.user_password_encoder.generic"/>
-    <service id="Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface" alias="security.user_password_encoder.generic"/>
+    <service id="Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface" alias="security.user_password_encoder.generic" public="false"/>
     <service id="Symfony\Component\Security\Http\Authentication\AuthenticationUtils" alias="security.authentication_utils" public="false"/>
     <service id="Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface" alias="debug.security.access.decision_manager" public="false"/>
     <service id="Symfony\Component\Security\Http\Firewall" alias="security.firewall" public="false"/>
@@ -3646,7 +3676,9 @@
     <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool" public="false"/>
     <service id="mailer" alias="swiftmailer.mailer.default"/>
     <service id="Doctrine\DBAL\Driver\Connection" alias="doctrine.dbal.default_connection" public="false"/>
+    <service id="Doctrine\DBAL\Connection" alias="doctrine.dbal.default_connection" public="false"/>
     <service id="Doctrine\Common\Persistence\ManagerRegistry" alias="doctrine" public="false"/>
+    <service id="Symfony\Bridge\Doctrine\RegistryInterface" alias="doctrine" public="false"/>
     <service id="database_connection" alias="doctrine.dbal.default_connection"/>
     <service id="doctrine.dbal.event_manager" alias="doctrine.dbal.default_connection.event_manager" public="false"/>
     <service id="Doctrine\Common\Persistence\ObjectManager" alias="doctrine.orm.default_entity_manager" public="false"/>

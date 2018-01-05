@@ -28,6 +28,7 @@ use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\ContainerBuilder
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\TranslationExtractorPass;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\TranslationDumperPass;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\UnusedTagsPass;
+use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\WorkflowGuardListenerPass;
 use Symfony\Component\Config\DependencyInjection\ConfigCachePass;
 use Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass;
 use Symfony\Component\HttpKernel\DependencyInjection\ControllerArgumentValueResolverPass;
@@ -61,7 +62,7 @@ class FrameworkBundle extends Bundle
         ErrorHandler::register(null, false)->throwAt($this->container->getParameter('debug.error_handler.throw_at'), true);
 
         if ($this->container->hasParameter('kernel.trusted_proxies')) {
-            @trigger_error('The "kernel.trusted_proxies" parameter is deprecated since version 3.3 and will be removed in 4.0. Use the Request::setTrustedProxies() method in your front controller instead.', E_USER_DEPRECATED);
+            @trigger_error('The "kernel.trusted_proxies" parameter is deprecated since Symfony 3.3 and will be removed in 4.0. Use the Request::setTrustedProxies() method in your front controller instead.', E_USER_DEPRECATED);
 
             if ($trustedProxies = $this->container->getParameter('kernel.trusted_proxies')) {
                 Request::setTrustedProxies($trustedProxies, Request::getTrustedHeaderSet());
@@ -109,6 +110,7 @@ class FrameworkBundle extends Bundle
         $this->addCompilerPassIfExists($container, ValidateWorkflowsPass::class);
         $container->addCompilerPass(new CachePoolClearerPass(), PassConfig::TYPE_AFTER_REMOVING);
         $this->addCompilerPassIfExists($container, FormPass::class);
+        $container->addCompilerPass(new WorkflowGuardListenerPass());
 
         if ($container->getParameter('kernel.debug')) {
             $container->addCompilerPass(new AddDebugLogProcessorPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -32);
