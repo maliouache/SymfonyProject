@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new IPS\SymfonyProjectBundle\IPSSymfonyProjectBundle(),
             new ResearchLabUserBundle\ResearchLabUserBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
