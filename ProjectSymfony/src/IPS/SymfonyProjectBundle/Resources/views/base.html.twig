@@ -67,10 +67,18 @@
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="/projects">Projects</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href="/profile">Profile</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+          <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+          
+          <a href="{{ path('fos_user_security_logout') }}">
+              <span class="glyphicon glyphicon-log-in"></span> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} | Logout
+          </a>
+          {% else %}
+              <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+          {% endif %}
+        </li>
       </ul>
     </div>
   </div>
