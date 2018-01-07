@@ -11,24 +11,46 @@ use IPS\SymfonyProjectBundle\Entity\Task;
 use Symfony\Component\HttpFoundation\Request;
 use IPS\SymfonyProjectBundle\Form\ReferenceType;
 use IPS\SymfonyProjectBundle\Form\WorkType;
-
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
+use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Form\Factory\FactoryInterface;
+use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Model\UserInterface;
+use FOS\UserBundle\Model\UserManagerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
+        $user = $this->getUser();
+        if (is_object($user) and $user instanceof UserInterface){
+            return $this->homeAction();
+        }
         return $this->render('IPSSymfonyProjectBundle:Default:index.html.twig');
     }
 
+    public function checkLogin(){
+        $user = $this->getUser();
+        if (!is_object($user) || !$user instanceof UserInterface) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+    }
+
     public function homeAction(){
+        $this->checkLogin();
         return $this->render('IPSSymfonyProjectBundle::home.html.twig');
     }
 
     public function newprojectAction(){
+        $this->checkLogin();
         return $this->render('IPSSymfonyProjectBundle::new_project.html.twig');
     }
 
     public function saveprojectAction(){
+        $this->checkLogin();
         $project=new Project();
         $project->init($_POST["name"],$_POST["importance"],$_POST["deadline"],$_POST["domain"],$_POST["comment"]);
         $em=$this->getDoctrine()->getManager();
@@ -38,6 +60,7 @@ class DefaultController extends Controller
     }
 
     public function showprojectsAction(){
+        $this->checkLogin();
         $em=$this->getDoctrine()->getManager();
         $projects=$em->getRepository('IPSSymfonyProjectBundle:Project')->findAll();
         $j=0;
@@ -62,6 +85,7 @@ class DefaultController extends Controller
     }
 
     public function editprojectsAction(){
+        $this->checkLogin();
         $rep_proj=$this->getDoctrine()->getManager()->getRepository('IPSSymfonyProjectBundle:Project');
         $projects=$rep_proj->findAll();
         return $this->get('templating')->renderResponse(
@@ -70,6 +94,7 @@ class DefaultController extends Controller
         );  
     }
     public function editprojectAction($id){
+        $this->checkLogin();
         $rep_proj=$this->getDoctrine()->getManager()->getRepository('IPSSymfonyProjectBundle:Project');
         $project=$rep_proj->find($id);
         $fm=$e=$g=$m=$p=$c=$vhigh=$high=$medium=$low=$vlow="";
@@ -127,6 +152,7 @@ class DefaultController extends Controller
     }
 
     public function updateprojectAction($id){
+        $this->checkLogin();
         $em=$this->getDoctrine()->getManager();
         $project=$em->getRepository('IPSSymfonyProjectBundle:Project')->find($id);
         $project->init($_POST["name"],$_POST["importance"],$_POST["deadline"],$_POST["domain"],$_POST["comment"]);
@@ -135,6 +161,7 @@ class DefaultController extends Controller
     }
 
     public function deleteprojectAction($id){
+        $this->checkLogin();
         $em=$this->getDoctrine()->getManager();
         $project=$em->getRepository('IPSSymfonyProjectBundle:Project')->find($id);
         $em->remove($project);
@@ -143,6 +170,7 @@ class DefaultController extends Controller
     }
 
     public function addsectionAction($proj,$crea_msg=""){
+        $this->checkLogin();
         $msg="";
         if ($crea_msg=="OK"){
             $msg='A new section has been added successfully!';
@@ -155,6 +183,7 @@ class DefaultController extends Controller
     }
 
     public function savesectionAction(){
+        $this->checkLogin();
         $section=new Section();
         $em=$this->getDoctrine()->getManager();
         $project=$em->getRepository('IPSSymfonyProjectBundle:Project')->find($_POST['proj']);
@@ -165,6 +194,7 @@ class DefaultController extends Controller
     }
 
     public function showprojectAction($id){
+        $this->checkLogin();
         $em=$this->getDoctrine()->getManager();
         $project=$em->getRepository('IPSSymfonyProjectBundle:Project')->find($id);
         $sections=$em->getRepository('IPSSymfonyProjectBundle:Section')->findBy(array('PROJECT'=>$project));
@@ -182,6 +212,7 @@ class DefaultController extends Controller
     }
 
     public function addtaskAction($sect,$crea_msg=""){
+        $this->checkLogin();
         $msg="";
         if ($crea_msg=="OK"){
             $msg='A new task has been added successfully!';
@@ -194,6 +225,7 @@ class DefaultController extends Controller
     }
 
     public function savetaskAction(){
+        $this->checkLogin();
         $task=new Task();
         $em=$this->getDoctrine()->getManager();
         $section=$em->getRepository('IPSSymfonyProjectBundle:Section')->find($_POST['sect']);
@@ -205,6 +237,7 @@ class DefaultController extends Controller
     }
 
     public function updatestatut(Section $section){
+        $this->checkLogin();
         $em=$this->getDoctrine()->getManager();
         $tasks=$em->getRepository('IPSSymfonyProjectBundle:Task')->findBy(array('SECTION'=>$section));
         $i=0;$cumul=0;
@@ -220,6 +253,7 @@ class DefaultController extends Controller
     }
 
     public function addreferenceAction($task_id,Request $request){
+        $this->checkLogin();
         $msg="";
         $reference=new Reference();
         $form_ref = $this->get('form.factory')->create(ReferenceType::class, $reference);
@@ -249,6 +283,7 @@ class DefaultController extends Controller
     }
 
     public function addworkAction($task_id,Request $request){
+        $this->checkLogin();
         $msg="";
         $work=new Work();
         $form_ref = $this->get('form.factory')->create(WorkType::class, $work);
@@ -284,6 +319,7 @@ class DefaultController extends Controller
     }
 
     public function showtaskAction($id){
+        $this->checkLogin();
         $em=$this->getDoctrine()->getManager();
         $task=$em->getRepository('IPSSymfonyProjectBundle:Task')->find($id);
         $references=$em->getRepository('IPSSymfonyProjectBundle:Reference')->findBy(array('TASK'=>$task));
@@ -309,6 +345,7 @@ class DefaultController extends Controller
     }
 
     public function showsectionAction($id){
+        $this->checkLogin();
         $em=$this->getDoctrine()->getManager();
         $section=$em->getRepository('IPSSymfonyProjectBundle:Section')->find($id);
         $tasks=$em->getRepository('IPSSymfonyProjectBundle:Task')->findBy(array('SECTION'=>$section));
@@ -342,6 +379,7 @@ class DefaultController extends Controller
     }
 
     public function endtaskAction($id){
+        $this->checkLogin();
         $em=$this->getDoctrine()->getManager();
         $task=$em->getRepository('IPSSymfonyProjectBundle:Task')->find($id);
         $task->setSTATUT(100);
@@ -352,6 +390,7 @@ class DefaultController extends Controller
     }
 
     public function showworkAction($id){
+        $this->checkLogin();
         $em=$this->getDoctrine()->getManager();
         $work=$em->getRepository('IPSSymfonyProjectBundle:Work')->find($id);
         // $work->setCONTENT(htmlspecialchars($work->getCONTENT()));

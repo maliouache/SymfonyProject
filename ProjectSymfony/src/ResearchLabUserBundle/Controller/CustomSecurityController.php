@@ -1,5 +1,5 @@
 <?php
-// src/OC/UserBundle/Controller/SecurityController.php;
+// src/OC/UserBundle/Controller/CustomSecurityController.php;
 
 namespace ResearchLabUserBundle\Controller;
 
@@ -10,7 +10,7 @@ use ResearchLabUserBundle\Form\UserType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
-class SecurityController extends Controller
+class CustomSecurityController extends Controller
 {
   // public function loginAction(Request $request)
   // {
@@ -50,5 +50,9 @@ class SecurityController extends Controller
       'form_usr' => $form_usr->createView(),
       'msg' => $msg
     ));
+  }
+
+  public function profileoptionsAction(){
+    return $this->render('IPSSymfonyProjectBundle::profile.html.twig');
   }
 }

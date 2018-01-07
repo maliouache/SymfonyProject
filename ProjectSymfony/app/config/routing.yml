@@ -27,4 +27,8 @@ fos_user_change_password:
 
 end_task:
     path: /add/user
-    defaults: { _controller: ResearchLabUserBundle:Security:addUser }
+    defaults: { _controller: ResearchLabUserBundle:CustomSecurity:addUser }
+
+profile_actions:
+    path: /profile/options
+    defaults: { _controller: ResearchLabUserBundle:CustomSecurity:profileoptions }
