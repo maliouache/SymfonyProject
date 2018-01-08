@@ -77,3 +77,15 @@ show_section:
 end_task:
     path: /end/task/{id}
     defaults: { _controller: IPSSymfonyProjectBundle:Default:endtask }
+
+my_tasks:
+    path: /show/mytasks
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:mytasks }
+
+staff:
+    path: /staff
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:staff }
+
+remove_staff_by_username:
+    path: /staff/remove/{username}
+    defaults: { _controller: IPSSymfonyProjectBundle:Default:deletestaff }

@@ -399,4 +399,41 @@ class DefaultController extends Controller
             array('work'  => $work)
         ); 
     }
+
+    public function mytasksAction(){
+        $this->checkLogin();
+        $user=$this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $mytasks=$em->getRepository('IPSSymfonyProjectBundle:Task')->findBy(array('iNCHARGE'=>$user->getUsername()));
+        return $this->render('IPSSymfonyProjectBundle::my_tasks.html.twig',array(
+            'mytasks'=>$mytasks
+        ));
+    }
+
+    public function staffAction(){
+        $this->checkLogin();
+        $user=$this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $staff=$em->getRepository('ResearchLabUserBundle:User')->findAll();
+        return $this->render('IPSSymfonyProjectBundle::staff.html.twig',array(
+            'staff'=>$staff
+        ));
+    }
+
+    public function deletestaffAction($username) {
+        $userManager = $this->get('fos_user.user_manager');
+        /* @var $userManager UserManager */
+      
+        $user = $userManager->findUserByUsername($username);
+        if(\is_null($user)) {
+          // user not found, generate $notFoundResponse
+          return $notFoundResponse;
+        }
+      
+        \assert(!\is_null($user));
+        $userManager->deleteUser($user);
+      
+        // okay, generate $okayResponse
+        return $this->staffAction();
+      }
 }

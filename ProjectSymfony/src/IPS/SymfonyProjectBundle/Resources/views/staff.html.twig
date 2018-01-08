@@ -1,0 +1,10 @@
+{% extends 'IPSSymfonyProjectBundle::base.html.twig' %}
+{% block content%}
+</br>
+    {% for person in staff%}
+    </br>
+    <div style="width:60%;margin:auto;">
+        {{person.username}} {{person.email}} <a href="/staff/remove/{{person.username}}" style="float:right;"><button class="btn btn-danger">Remove</button></a></br>
+    </div>
+    {%endfor%}
+{% endblock %}

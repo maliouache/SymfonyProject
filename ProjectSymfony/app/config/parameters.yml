@@ -4,7 +4,7 @@ parameters:
     database_port: null
     database_name: Research_Platform
     database_user: root
-    database_password: mercilam
+    database_password: said2016
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: 'aliouachemohammed@hotmail.com'
