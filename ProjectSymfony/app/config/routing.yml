@@ -25,7 +25,7 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
-end_task:
+add_user:
     path: /add/user
     defaults: { _controller: ResearchLabUserBundle:CustomSecurity:addUser }
 
